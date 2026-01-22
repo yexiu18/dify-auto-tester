@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+requests
+langfuse
+pandas
+python-multipart
+python-dotenv

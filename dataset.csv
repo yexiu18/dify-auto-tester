@@ -1,0 +1,4 @@
+sys.query,expected_output
+什么是大模型？,大模型通常指拥有数十亿、数百亿甚至数万亿参数的深度学习模型。
+Dify是什么？,Dify是一个开源的LLM应用开发平台。
+Langfuse的作用？,Langfuse是针对LLM应用的开源观测和分析平台。
