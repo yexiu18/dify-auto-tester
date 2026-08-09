@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 项目管理 Backup</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.6; }
+
+/* Header */
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.header h1 { font-size: 20px; margin-bottom: 4px; }
+.header .subtitle { font-size: 12px; opacity: 0.85; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; padding: 12px 24px; background: white; border-bottom: 1px solid #e5e7eb; overflow-x: auto; position: sticky; top: 60px; z-index: 99; }
+.tab-button { padding: 8px 20px; border: none; background: #f3f4f6; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; font-weight: 500; color: #6b7280; transition: all 0.2s; white-space: nowrap; }
+.tab-button:hover { background: #e0e7ff; color: #4f46e5; }
+.tab-button.active { background: #4f46e5; color: white; }
+
+/* Tab Content */
+.tab-content { display: none; padding: 20px 24px; max-width: 1000px; margin: 0 auto; }
+.tab-content.active { display: block; }
+
+/* Section */
+.section { background: white; border-radius: 12px; margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.section-title { font-size: 16px; font-weight: 600; padding: 14px 20px; background: #f8f9fb; border-bottom: 1px solid #e5e7eb; cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: space-between; }
+.section-title:hover { background: #f0f1f5; }
+.section-body { padding: 16px 20px; }
+.section.collapsed .section-body { display: none; }
+
+/* Overview */
+.overview { font-size: 14px; color: #374151; line-height: 1.8; margin-bottom: 12px; }
+.overview h3, .objectives h3, .key-points h3 { font-size: 13px; color: #6b7280; margin: 12px 0 4px; }
+
+/* Progress */
+.progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.progress-label { width: 80px; font-size: 13px; font-weight: 500; text-align: right; flex-shrink: 0; }
+.progress-bar { flex: 1; height: 20px; background: #e5e7eb; border-radius: 10px; overflow: hidden; max-width: 300px; }
+.progress-fill { height: 100%; border-radius: 10px; transition: width 0.5s ease; }
+.progress-text { font-size: 12px; color: #6b7280; width: 36px; }
+.progress-detail { font-size: 12px; color: #9ca3af; }
+
+/* Badge */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+
+/* Action Items */
+.item-row { padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+.item-row:last-child { border-bottom: none; }
+.item-main { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.item-title { font-size: 14px; font-weight: 500; }
+.item-detail { font-size: 12px; color: #9ca3af; margin-top: 4px; margin-left: 4px; }
+.owner { font-size: 12px; color: #6366f1; background: #eef2ff; padding: 1px 6px; border-radius: 4px; }
+.due { font-size: 12px; color: #6b7280; }
+.ddl-unknown { font-size: 12px; color: #ef4444; background: #fef2f2; padding: 1px 6px; border-radius: 4px; }
+
+/* Roles */
+.roles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.role-card { background: #f8f9fb; border-radius: 8px; padding: 12px; text-align: center; }
+.role-person { font-size: 14px; font-weight: 600; color: #1f2937; }
+.role-title { font-size: 12px; color: #6366f1; margin-top: 2px; }
+.role-detail { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+
+/* Commitments */
+.commit-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+.commit-row:last-child { border-bottom: none; }
+.commit-person { font-size: 14px; font-weight: 500; }
+.commit-arrow { font-size: 14px; color: #6b7280; }
+.commit-action { font-size: 13px; color: #374151; margin-left: 4px; }
+
+/* Timeline */
+.timeline-row { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid #f3f4f6; }
+.timeline-row:last-child { border-bottom: none; }
+.timeline-time { font-size: 12px; color: #9ca3af; white-space: nowrap; width: 120px; }
+.timeline-event { font-size: 13px; font-weight: 500; }
+.timeline-detail { font-size: 12px; color: #6b7280; }
+
+/* Misc */
+.empty { color: #9ca3af; font-size: 14px; padding: 8px 0; }
+.footer { text-align: center; padding: 16px; font-size: 12px; color: #9ca3af; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body { background: #111827; color: #e5e7eb; }
+  .section { background: #1f2937; }
+  .section-title { background: #1a1f36; border-color: #374151; }
+  .section-title:hover { background: #232b4a; }
+  .role-card { background: #1a1f36; }
+  .progress-bar { background: #374151; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 项目管理 Backup</h1>
+  <div class="subtitle">最后更新：2026-08-09 15:18 · 共 4 个项目</div>
+</div>
+
+<div class="tabs">
+<button class="tab-button active" onclick="switchTab(event, 'ecom')">屈臣氏-ecom</button>
+<button class="tab-button " onclick="switchTab(event, 'LBS')">LBS</button>
+<button class="tab-button " onclick="switchTab(event, '千店千图')">千店千图</button>
+<button class="tab-button " onclick="switchTab(event, 'AIPOG')">AIPOG</button>
+
+</div>
+
+
+    <div class="tab-content active" data-project="ecom">
+      <!-- 项目说明 -->
+      <div class="section">
+        <h2 class="section-title">📋 项目说明</h2>
+        <div class="section-body">
+          <div class="overview">屈臣氏电商销量预测项目。<br><br>**背景**：通过算法预测屈臣氏门店的电商销量，指导备货和档期策略。<br>**目标**：实现 X个门店 Y个品类的高准确率销量预测，MAPE ≤ Z%。</div>
+          <div class="objectives"><h3>目标</h3>- [ ] 完成历史数据清洗和特征工程<br>- [ ] 训练并调优预测模型<br>- [ ] 输出分档期预测结果<br>- [ ] 数据应用明细交付业务侧</div>
+          <div class="key-points"><h3>重点关注</h3>- 特别关注：到家预测拆分的准确性<br>- 特别关注：缺货率指标的对齐<br>- 数据口径：新统计口径（2026-07-16 起）</div>
+        </div>
+      </div>
+
+      <!-- 当前进度 -->
+      <div class="section">
+        <h2 class="section-title">📊 当前进度</h2>
+        <div class="section-body">
+          
+        <div class="progress-row">
+            <span class="progress-label">整体</span>
+            <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#3b82f6"></div></div><span class="progress-text">60%</span>
+            <span class="progress-detail">档期预测已产出，持续优化中</span>
+        </div>
+        <div class="progress-row">
+            <span class="progress-label">数据</span>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#22c55e"></div></div><span class="progress-text">100%</span>
+            <span class="progress-detail">历史数据清洗完成</span>
+        </div>
+        <div class="progress-row">
+            <span class="progress-label">模型</span>
+            <div class="progress-bar"><div class="progress-fill" style="width:70%;background:#3b82f6"></div></div><span class="progress-text">70%</span>
+            <span class="progress-detail">V2版本迭代中</span>
+        </div>
+        <div class="progress-row">
+            <span class="progress-label">交付</span>
+            <div class="progress-bar"><div class="progress-fill" style="width:40%;background:#3b82f6"></div></div><span class="progress-text">40%</span>
+            <span class="progress-detail">数据应用明细已发业务</span>
+        </div>
+        </div>
+      </div>
+
+      <!-- 待办清单 -->
+      <div class="section">
+        <h2 class="section-title">✅ 待办清单</h2>
+        <div class="section-body">
+          
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 进行中</span>
+                <span class="item-title">V2预测方案输出</span>
+                <span class="owner">@李四</span>
+                <span class="due">📅 本周三</span>
+            </div>
+            <div class='item-detail'>基于新口径</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">添加预测准确率分组分布</span>
+                <span class="owner">@user_274f8f</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-07)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">核实lt_date和fcst_lt_before数据</span>
+                <span class="owner">@user_274f8f</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-06)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">查询lt值为0的原因</span>
+                <span class="owner">@user_024434</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-06)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">审查无缺货部分</span>
+                <span class="owner">@user_a63075</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-06)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">提供增量成本计算方案</span>
+                <span class="owner">@user_274f8f</span>
+                <span class="ddl-unknown">⚠️ 需找Jason确认</span>
+            </div>
+            <div class='item-detail'>AI提取(2026-08-06)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">检查店铺分组是否正确</span>
+                <span class="owner">@user_a63075</span>
+                <span class="ddl-unknown">⚠️ 需找炜烨确认</span>
+            </div>
+            <div class='item-detail'>AI提取(2026-08-04)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">修正抽样人工的遗漏数据</span>
+                <span class="owner">@user_274f8f</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-04)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">更新算法版本并提高准确率</span>
+                <span class="owner">@user_0fbaed</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-04)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">准备好与炜烨之间的自动化工作</span>
+                <span class="owner">@user_024434</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-04)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">数据复盘确认</span>
+                <span class="owner">@张三</span>
+                <span class="ddl-unknown">⚠️ 待定</span>
+            </div>
+            <div class='item-detail'>需找邵琦确认DDL</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- 风险 -->
+      <div class="section">
+        <h2 class="section-title">⚠️ 风险清单</h2>
+        <div class="section-body">
+          
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
+                <span class="item-title">数据延迟上报影响预测</span>
+                <span class="owner">@李四</span>
+                <span class="badge resolved">✅ 已解决</span>
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
+                <span class="item-title">个别城市WMAPE预测问题</span>
+                
+                <span class="badge open">⚠️ 待解决</span>
+            </div>
+            <div class='item-detail'>个别城市WMAPE预测效果不佳，可能需要进一步分析</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#22c55e20;color:#22c55e">🟢 低</span>
+                <span class="item-title">邵琦休假影响对齐节奏</span>
+                <span class="owner">@张三</span>
+                <span class="badge open">⚠️ 待解决</span>
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#ef444420;color:#ef4444">🔴 高</span>
+                <span class="item-title">回测无法看到也预估不出增量和成本</span>
+                
+                <span class="badge open">⚠️ 待解决</span>
+            </div>
+            <div class='item-detail'>感觉不是长久之计</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- 人员角色 -->
+      <div class="section">
+        <h2 class="section-title">👥 人员角色</h2>
+        <div class="section-body"><div class="roles-grid"><div class="role-card">
+            <div class="role-person">张三</div>
+            <div class="role-title">PM</div>
+            <div class='role-detail'>整体推进</div>
+        </div><div class="role-card">
+            <div class="role-person">李四</div>
+            <div class="role-title">算法</div>
+            <div class='role-detail'>模型开发</div>
+        </div><div class="role-card">
+            <div class="role-person">王五</div>
+            <div class="role-title">业务</div>
+            <div class='role-detail'>需求对齐</div>
+        </div></div></div>
+      </div>
+
+      <!-- 承诺链 -->
+      <div class="section">
+        <h2 class="section-title">🔗 承诺链</h2>
+        <div class="section-body">
+          
+        <div class="commit-row">
+            <span class="commit-person">user_274f8f</span>
+            <span class="commit-arrow">→ 🔗</span>
+            <span class="commit-person">user_0fbaed</span>
+            <span class="commit-action">询问能否取得相关数据</span>
+        </div>
+        <div class="commit-row">
+            <span class="commit-person">user_274f8f</span>
+            <span class="commit-arrow">→ 🔗</span>
+            <span class="commit-person">user_0fbaed</span>
+            <span class="commit-action">等待Jason提供方案</span>
+        </div>
+        <div class="commit-row">
+            <span class="commit-person">李四</span>
+            <span class="commit-arrow">→ 🔗</span>
+            <span class="commit-person">张三</span>
+            <span class="commit-action">周三出V2方案</span>
+        </div>
+        <div class="commit-row">
+            <span class="commit-person">张三</span>
+            <span class="commit-arrow">→ 🔗</span>
+            <span class="commit-person">王五</span>
+            <span class="commit-action">方案确认后同步</span>
+        </div>
+        </div>
+      </div>
+
+      <!-- 时间线 -->
+      <div class="section">
+        <h2 class="section-title">📅 更新时间线</h2>
+        <div class="section-body">
+          <div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">进度更新: 模型</span>
+            <span class='timeline-detail'>新版本模型可以应用到目前定义的Top400+200+50，并且能够给出预测值。</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">进度更新: 模型</span>
+            <span class='timeline-detail'>老版本模型预测效果受限，无法预测Top品里的一部分，5%左右预测不了，新版本有所改进。</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">进度更新: 模型</span>
+            <span class='timeline-detail'>老版本和新版本的Top选取方式从过去5档期变为过去4档期。</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 5 条（待办1/风险1/承诺0/进度3）</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">进度更新: 数据应用</span>
+            <span class='timeline-detail'>核实lt_date和fcst_lt_before数据</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">进度更新: 数据应用</span>
+            <span class='timeline-detail'>查询lt值为0的原因</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">进度更新: 模型</span>
+            <span class='timeline-detail'>审查无缺货部分</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 10 条（待办4/风险1/承诺2/进度3）</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:17</span>
+            <span class="timeline-event">进度更新: 数据对比分析</span>
+            <span class='timeline-detail'>完成算法和人工的抽样对比，并讨论准确率提高的可能性</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:17</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 5 条（待办4/风险0/承诺0/进度1）</span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content " data-project="LBS">
+      <!-- 项目说明 -->
+      <div class="section">
+        <h2 class="section-title">📋 项目说明</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+          
+          
+        </div>
+      </div>
+
+      <!-- 当前进度 -->
+      <div class="section">
+        <h2 class="section-title">📊 当前进度</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 待办清单 -->
+      <div class="section">
+        <h2 class="section-title">✅ 待办清单</h2>
+        <div class="section-body">
+          
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">下周周会</span>
+                <span class="owner">@_user_1, _user_2, _user_3, _user_4</span>
+                <span class="due">📅 下周一4-5点</span>
+            </div>
+            <div class='item-detail'>AI提取(2026-08-07)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">审核文件 bid_final_9grid.xlsx</span>
+                <span class="owner">@_user_1, _user_2, _user_3</span>
+                <span class="ddl-unknown">⚠️ 需找邵琦确认</span>
+            </div>
+            <div class='item-detail'>AI提取(2026-08-06)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">调整转化不均衡统计结果输出</span>
+                <span class="owner">@user_f11752</span>
+                
+            </div>
+            <div class='item-detail'>AI提取(2026-08-04)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">完成POC</span>
+                
+                <span class="due">📅 这周</span>
+            </div>
+            <div class='item-detail'>AI提取(2026-08-04)</div>
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">门店出价结果沟通</span>
+                
+                <span class="due">📅 下午四点</span>
+            </div>
+            <div class='item-detail'>AI提取(2026-08-03)</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- 风险 -->
+      <div class="section">
+        <h2 class="section-title">⚠️ 风险清单</h2>
+        <div class="section-body">
+          
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
+                <span class="item-title">强化规则推出时间不确定</span>
+                
+                <span class="badge open">⚠️ 待解决</span>
+            </div>
+            <div class='item-detail'>强化规则出来之前业务要做POC的话，转化不均衡下钻拆分能有出价调整吗？</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- 人员角色 -->
+      <div class="section">
+        <h2 class="section-title">👥 人员角色</h2>
+        <div class="section-body"><div class="roles-grid"><p class="empty">暂无</p></div>
+      </div>
+
+      <!-- 承诺链 -->
+      <div class="section">
+        <h2 class="section-title">🔗 承诺链</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 时间线 -->
+      <div class="section">
+        <h2 class="section-title">📅 更新时间线</h2>
+        <div class="section-body">
+          <div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:18</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:17</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 3 条（待办2/风险1/承诺0/进度0）</span>
+        </div><div class="timeline-row">
+            <span class="timeline-time">2026-08-09 15:17</span>
+            <span class="timeline-event">AI自动采集</span>
+            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content " data-project="千店千图">
+      <!-- 项目说明 -->
+      <div class="section">
+        <h2 class="section-title">📋 项目说明</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+          
+          
+        </div>
+      </div>
+
+      <!-- 当前进度 -->
+      <div class="section">
+        <h2 class="section-title">📊 当前进度</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 待办清单 -->
+      <div class="section">
+        <h2 class="section-title">✅ 待办清单</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 风险 -->
+      <div class="section">
+        <h2 class="section-title">⚠️ 风险清单</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 人员角色 -->
+      <div class="section">
+        <h2 class="section-title">👥 人员角色</h2>
+        <div class="section-body"><div class="roles-grid"><p class="empty">暂无</p></div>
+      </div>
+
+      <!-- 承诺链 -->
+      <div class="section">
+        <h2 class="section-title">🔗 承诺链</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 时间线 -->
+      <div class="section">
+        <h2 class="section-title">📅 更新时间线</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content " data-project="AIPOG">
+      <!-- 项目说明 -->
+      <div class="section">
+        <h2 class="section-title">📋 项目说明</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+          
+          
+        </div>
+      </div>
+
+      <!-- 当前进度 -->
+      <div class="section">
+        <h2 class="section-title">📊 当前进度</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 待办清单 -->
+      <div class="section">
+        <h2 class="section-title">✅ 待办清单</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 风险 -->
+      <div class="section">
+        <h2 class="section-title">⚠️ 风险清单</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 人员角色 -->
+      <div class="section">
+        <h2 class="section-title">👥 人员角色</h2>
+        <div class="section-body"><div class="roles-grid"><p class="empty">暂无</p></div>
+      </div>
+
+      <!-- 承诺链 -->
+      <div class="section">
+        <h2 class="section-title">🔗 承诺链</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 时间线 -->
+      <div class="section">
+        <h2 class="section-title">📅 更新时间线</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+    </div>
+
+<div class="footer">
+  project-backup v1.0 · 自动采集 + 手动维护
+</div>
+
+<script>
+function switchTab(evt, projectId) {
+  // Tab buttons
+  document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+  evt.currentTarget.classList.add('active');
+  // Tab contents
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelector(`.tab-content[data-project="${projectId}"]`).classList.add('active');
+}
+
+// Section collapse/expand
+document.querySelectorAll('.section-title').forEach(title => {
+  title.addEventListener('click', () => {
+    title.parentElement.classList.toggle('collapsed');
+  });
+});
+</script>
+
+</body>
+</html>
