@@ -1,0 +1,555 @@
+{
+  "ecom": {
+    "project": "ecom",
+    "overview": "屈臣氏电商销量预测项目。\n\n**背景**：通过算法预测屈臣氏门店的电商销量，指导备货和档期策略。\n**目标**：实现 X个门店 Y个品类的高准确率销量预测，MAPE ≤ Z%。",
+    "objectives": "- [ ] 完成历史数据清洗和特征工程\n- [ ] 训练并调优预测模型\n- [ ] 输出分档期预测结果\n- [ ] 数据应用明细交付业务侧",
+    "key_points": "- 特别关注：到家预测拆分的准确性\n- 特别关注：缺货率指标的对齐\n- 数据口径：新统计口径（2026-07-16 起）",
+    "progress": [
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "phase": "整体",
+        "status": "in_progress",
+        "percent": 60,
+        "detail": "档期预测已产出，持续优化中",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 2,
+        "project_id": "ecom",
+        "phase": "数据",
+        "status": "done",
+        "percent": 100,
+        "detail": "历史数据清洗完成",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 3,
+        "project_id": "ecom",
+        "phase": "模型",
+        "status": "in_progress",
+        "percent": 70,
+        "detail": "V2版本迭代中",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 4,
+        "project_id": "ecom",
+        "phase": "交付",
+        "status": "in_progress",
+        "percent": 40,
+        "detail": "数据应用明细已发业务",
+        "updated_at": "2026-08-09 15:12:24"
+      }
+    ],
+    "action_items": [
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "title": "V2预测方案输出",
+        "detail": "基于新口径",
+        "owner": "李四",
+        "due": "本周三",
+        "status": "in_progress",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 15,
+        "project_id": "ecom",
+        "title": "添加预测准确率分组分布",
+        "detail": "AI提取(2026-08-07)",
+        "owner": "user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:33",
+        "updated_at": "2026-08-09 15:18:33"
+      },
+      {
+        "id": 10,
+        "project_id": "ecom",
+        "title": "核实lt_date和fcst_lt_before数据",
+        "detail": "AI提取(2026-08-06)",
+        "owner": "user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 11,
+        "project_id": "ecom",
+        "title": "查询lt值为0的原因",
+        "detail": "AI提取(2026-08-06)",
+        "owner": "user_024434",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 12,
+        "project_id": "ecom",
+        "title": "审查无缺货部分",
+        "detail": "AI提取(2026-08-06)",
+        "owner": "user_a63075",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 13,
+        "project_id": "ecom",
+        "title": "提供增量成本计算方案",
+        "detail": "AI提取(2026-08-06)",
+        "owner": "user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找Jason确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 4,
+        "project_id": "ecom",
+        "title": "检查店铺分组是否正确",
+        "detail": "AI提取(2026-08-04)",
+        "owner": "user_a63075",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找炜烨确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:43",
+        "updated_at": "2026-08-09 15:17:43"
+      },
+      {
+        "id": 5,
+        "project_id": "ecom",
+        "title": "修正抽样人工的遗漏数据",
+        "detail": "AI提取(2026-08-04)",
+        "owner": "user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:43",
+        "updated_at": "2026-08-09 15:17:43"
+      },
+      {
+        "id": 6,
+        "project_id": "ecom",
+        "title": "更新算法版本并提高准确率",
+        "detail": "AI提取(2026-08-04)",
+        "owner": "user_0fbaed",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:43",
+        "updated_at": "2026-08-09 15:17:43"
+      },
+      {
+        "id": 7,
+        "project_id": "ecom",
+        "title": "准备好与炜烨之间的自动化工作",
+        "detail": "AI提取(2026-08-04)",
+        "owner": "user_024434",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:43",
+        "updated_at": "2026-08-09 15:17:43"
+      },
+      {
+        "id": 2,
+        "project_id": "ecom",
+        "title": "数据复盘确认",
+        "detail": "需找邵琦确认DDL",
+        "owner": "张三",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "待定",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24",
+        "updated_at": "2026-08-09 15:12:24"
+      }
+    ],
+    "risks": [
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "title": "数据延迟上报影响预测",
+        "detail": "",
+        "level": "medium",
+        "owner": "李四",
+        "status": "resolved",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 5,
+        "project_id": "ecom",
+        "title": "个别城市WMAPE预测问题",
+        "detail": "个别城市WMAPE预测效果不佳，可能需要进一步分析",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:33",
+        "updated_at": "2026-08-09 15:18:33"
+      },
+      {
+        "id": 2,
+        "project_id": "ecom",
+        "title": "邵琦休假影响对齐节奏",
+        "detail": "",
+        "level": "low",
+        "owner": "张三",
+        "status": "open",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 4,
+        "project_id": "ecom",
+        "title": "回测无法看到也预估不出增量和成本",
+        "detail": "感觉不是长久之计",
+        "level": "high",
+        "owner": "",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      }
+    ],
+    "roles": [
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "person": "张三",
+        "role": "PM",
+        "detail": "整体推进",
+        "created_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 2,
+        "project_id": "ecom",
+        "person": "李四",
+        "role": "算法",
+        "detail": "模型开发",
+        "created_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 3,
+        "project_id": "ecom",
+        "person": "王五",
+        "role": "业务",
+        "detail": "需求对齐",
+        "created_at": "2026-08-09 15:12:24"
+      }
+    ],
+    "commitments": [
+      {
+        "id": 3,
+        "project_id": "ecom",
+        "from_person": "user_274f8f",
+        "to_person": "user_0fbaed",
+        "action": "询问能否取得相关数据",
+        "detail": "AI提取(2026-08-06)",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 4,
+        "project_id": "ecom",
+        "from_person": "user_274f8f",
+        "to_person": "user_0fbaed",
+        "action": "等待Jason提供方案",
+        "detail": "AI提取(2026-08-06)",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14",
+        "updated_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "from_person": "李四",
+        "to_person": "张三",
+        "action": "周三出V2方案",
+        "detail": "",
+        "status": "open",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24",
+        "updated_at": "2026-08-09 15:12:24"
+      },
+      {
+        "id": 2,
+        "project_id": "ecom",
+        "from_person": "张三",
+        "to_person": "王五",
+        "action": "方案确认后同步",
+        "detail": "",
+        "status": "open",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24",
+        "updated_at": "2026-08-09 15:12:24"
+      }
+    ],
+    "timeline": [
+      {
+        "id": 11,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "新版本模型可以应用到目前定义的Top400+200+50，并且能够给出预测值。",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:33"
+      },
+      {
+        "id": 12,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "老版本模型预测效果受限，无法预测Top品里的一部分，5%左右预测不了，新版本有所改进。",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:33"
+      },
+      {
+        "id": 13,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "老版本和新版本的Top选取方式从过去5档期变为过去4档期。",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:33"
+      },
+      {
+        "id": 14,
+        "project_id": "ecom",
+        "event": "AI自动采集",
+        "detail": "提取 5 条（待办1/风险1/承诺0/进度3）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:33"
+      },
+      {
+        "id": 6,
+        "project_id": "ecom",
+        "event": "进度更新: 数据应用",
+        "detail": "核实lt_date和fcst_lt_before数据",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 7,
+        "project_id": "ecom",
+        "event": "进度更新: 数据应用",
+        "detail": "查询lt值为0的原因",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 8,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "审查无缺货部分",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 9,
+        "project_id": "ecom",
+        "event": "AI自动采集",
+        "detail": "提取 10 条（待办4/风险1/承诺2/进度3）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:14"
+      },
+      {
+        "id": 3,
+        "project_id": "ecom",
+        "event": "进度更新: 数据对比分析",
+        "detail": "完成算法和人工的抽样对比，并讨论准确率提高的可能性",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:43"
+      },
+      {
+        "id": 4,
+        "project_id": "ecom",
+        "event": "AI自动采集",
+        "detail": "提取 5 条（待办4/风险0/承诺0/进度1）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:43"
+      },
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "event": "模板导入",
+        "detail": "导入 16 条数据",
+        "source": "manual",
+        "created_at": "2026-08-09 15:12:24"
+      }
+    ]
+  },
+  "LBS": {
+    "project": "LBS",
+    "overview": "",
+    "objectives": "",
+    "key_points": "",
+    "progress": [],
+    "action_items": [
+      {
+        "id": 16,
+        "project_id": "LBS",
+        "title": "下周周会",
+        "detail": "AI提取(2026-08-07)",
+        "owner": "_user_1, _user_2, _user_3, _user_4",
+        "due": "下周一4-5点",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:41",
+        "updated_at": "2026-08-09 15:18:41"
+      },
+      {
+        "id": 14,
+        "project_id": "LBS",
+        "title": "审核文件 bid_final_9grid.xlsx",
+        "detail": "AI提取(2026-08-06)",
+        "owner": "_user_1, _user_2, _user_3",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找邵琦确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:21",
+        "updated_at": "2026-08-09 15:18:21"
+      },
+      {
+        "id": 8,
+        "project_id": "LBS",
+        "title": "调整转化不均衡统计结果输出",
+        "detail": "AI提取(2026-08-04)",
+        "owner": "user_f11752",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:50",
+        "updated_at": "2026-08-09 15:17:50"
+      },
+      {
+        "id": 9,
+        "project_id": "LBS",
+        "title": "完成POC",
+        "detail": "AI提取(2026-08-04)",
+        "owner": "",
+        "due": "这周",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:50",
+        "updated_at": "2026-08-09 15:17:50"
+      },
+      {
+        "id": 3,
+        "project_id": "LBS",
+        "title": "门店出价结果沟通",
+        "detail": "AI提取(2026-08-03)",
+        "owner": "",
+        "due": "下午四点",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:29",
+        "updated_at": "2026-08-09 15:17:29"
+      }
+    ],
+    "risks": [
+      {
+        "id": 3,
+        "project_id": "LBS",
+        "title": "强化规则推出时间不确定",
+        "detail": "强化规则出来之前业务要做POC的话，转化不均衡下钻拆分能有出价调整吗？",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:50",
+        "updated_at": "2026-08-09 15:17:50"
+      }
+    ],
+    "roles": [],
+    "commitments": [],
+    "timeline": [
+      {
+        "id": 15,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:41"
+      },
+      {
+        "id": 10,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:18:21"
+      },
+      {
+        "id": 5,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 3 条（待办2/风险1/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:50"
+      },
+      {
+        "id": 2,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 15:17:29"
+      }
+    ]
+  },
+  "千店千图": {
+    "project": "千店千图",
+    "overview": "",
+    "objectives": "",
+    "key_points": "",
+    "progress": [],
+    "action_items": [],
+    "risks": [],
+    "roles": [],
+    "commitments": [],
+    "timeline": []
+  },
+  "AIPOG": {
+    "project": "AIPOG",
+    "overview": "",
+    "objectives": "",
+    "key_points": "",
+    "progress": [],
+    "action_items": [],
+    "risks": [],
+    "roles": [],
+    "commitments": [],
+    "timeline": []
+  }
+}
