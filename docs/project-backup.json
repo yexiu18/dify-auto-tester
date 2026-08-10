@@ -354,40 +354,103 @@
     ],
     "milestones": [
       {
-        "id": 4,
-        "project_id": "ecom",
-        "title": "全量上线",
-        "date": "",
-        "description": "所有门店+品类全量覆盖",
-        "status": "planned",
-        "created_at": "2026-08-10 17:39:12"
-      },
-      {
-        "id": 1,
+        "id": 10,
         "project_id": "ecom",
         "title": "项目启动",
+        "date": "2026-04-01",
+        "description": "ECOM销量预测项目正式启动，核心目标为融合用户需求、商品特征、地域适配性、营销节庆、库存等多维度因子，对门店商品销量进行精准预测，支撑大促备货、新品冷启动、新店冷启动等场景的库存与货盘优化",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 11,
+        "project_id": "ecom",
+        "title": "前期特征梳理",
         "date": "2026-06-01",
-        "description": "ecom销量预测项目正式启动",
+        "description": "江炜烨完成特征梳理，计划6月底输出MVP版本并开展POC验证",
         "status": "done",
-        "created_at": "2026-08-10 17:39:12"
+        "created_at": "2026-08-10 17:47:06"
       },
       {
-        "id": 2,
+        "id": 12,
         "project_id": "ecom",
-        "title": "V1 模型上线",
+        "title": "模型迭代优化（京东/饿了么单独建模）",
+        "date": "2026-06-03",
+        "description": "针对京东、饿了么渠道数据特征单独开发建模，业务方期望6月底输出与实际数据对比的测试结果",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 13,
+        "project_id": "ecom",
+        "title": "多维度模型调整",
+        "date": "2026-06-11",
+        "description": "取消商品分层筛选、去掉长期缺货/无动销样本剔除规则、调整评估指标、移除归一化操作、优化时间索引与折扣粒度输入方式；明确7月完成算法POC的目标",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 14,
+        "project_id": "ecom",
+        "title": "第一版模型实验完成",
+        "date": "2026-06-24",
+        "description": "单看WMAPE指标模型与人工持平（60%左右），Bias指标远优于人工",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 15,
+        "project_id": "ecom",
+        "title": "POC结果输出",
+        "date": "2026-06-30",
+        "description": "完成POC结果输出，明确7月7-8日训练出正向结果后，7月15日-7月26日为POC验证周期",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 16,
+        "project_id": "ecom",
+        "title": "特征清单确认",
+        "date": "2026-07-14",
+        "description": "完成特征清单确认，待江炜烨输出线下实验效果后确认下一步动作",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 17,
+        "project_id": "ecom",
+        "title": "0716档期POC数据输出",
         "date": "2026-07-16",
-        "description": "第一版预测模型POC上线",
+        "description": "完成0716档期POC数据输出，与业务方确认结果口径，判断是否可汇报",
         "status": "done",
-        "created_at": "2026-08-10 17:39:12"
+        "created_at": "2026-08-10 17:47:06"
       },
       {
-        "id": 3,
+        "id": 18,
         "project_id": "ecom",
-        "title": "V2 模型迭代",
+        "title": "POC算法与BI对数",
+        "date": "2026-07-30",
+        "description": "完成0716-0729两周POC的算法与BI对数，确认差异解释，锁定当日分货结果的最晚交付时间",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 19,
+        "project_id": "ecom",
+        "title": "V2版本模型优化启动",
+        "date": "2026-08-05",
+        "description": "核心从追求计算精度向追求业务收益演进，回测范围覆盖2026年1月29日-6月18日的6个档期",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
+      },
+      {
+        "id": 20,
+        "project_id": "ecom",
+        "title": "V2模型效果验证完成",
         "date": "2026-08-10",
-        "description": "新口径数据应用+到家预测拆分",
-        "status": "in_progress",
-        "created_at": "2026-08-10 17:39:12"
+        "description": "WMAPE与老模型持平（0.831），Bias略有上升（0.340），预测商品范围提升；预测偏低区间占比从15.63%降至13.46%，预估超出部分周转周数8周以上占比砍半，整体更贴合业务实际需求",
+        "status": "done",
+        "created_at": "2026-08-10 17:47:06"
       }
     ]
   },
