@@ -70,6 +70,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
 .commit-action { font-size: 13px; color: #374151; margin-left: 4px; }
 
 /* Timeline */
+.milestone-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+.milestone-row.done { opacity: 0.7; }
+.ms-badge { font-size: 18px; width: 24px; text-align: center; }
+.ms-date { background: #e0e7ff; color: #4f46e5; padding: 2px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+.ms-title { font-weight: 600; flex: 1; }
+.ms-desc { color: #6b7280; font-size: 13px; }
+
 .timeline-row { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid #f3f4f6; }
 .timeline-row:last-child { border-bottom: none; }
 .timeline-time { font-size: 12px; color: #9ca3af; white-space: nowrap; width: 120px; }
@@ -95,7 +102,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
 
 <div class="header">
   <h1>📊 项目管理 Backup</h1>
-  <div class="subtitle">最后更新：2026-08-10 17:36 · 共 5 个项目</div>
+  <div class="subtitle">最后更新：2026-08-10 17:40 · 共 5 个项目</div>
 </div>
 
 <div class="tabs">
@@ -381,6 +388,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
         </div>
       </div>
 
+      <!-- 里程碑 -->
+      <div class="section">
+        <h2 class="section-title">🏆 项目里程碑</h2>
+        <div class="section-body">
+          <div class="milestone-row planned"><span class="ms-badge">⚪</span><span class="ms-title">全量上线</span><span class="ms-desc">所有门店+品类全量覆盖</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-06-01</span><span class="ms-title">项目启动</span><span class="ms-desc">ecom销量预测项目正式启动</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-07-16</span><span class="ms-title">V1 模型上线</span><span class="ms-desc">第一版预测模型POC上线</span></div><div class="milestone-row in_progress"><span class="ms-badge">🔵</span><span class="ms-date">2026-08-10</span><span class="ms-title">V2 模型迭代</span><span class="ms-desc">新口径数据应用+到家预测拆分</span></div>
+        </div>
+      </div>
+
       <!-- 时间线 -->
       <div class="section">
         <h2 class="section-title">📅 更新时间线</h2>
@@ -506,6 +521,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
         </div>
       </div>
 
+      <!-- 里程碑 -->
+      <div class="section">
+        <h2 class="section-title">🏆 项目里程碑</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
       <!-- 时间线 -->
       <div class="section">
         <h2 class="section-title">📅 更新时间线</h2>
@@ -584,6 +607,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
         </div>
       </div>
 
+      <!-- 里程碑 -->
+      <div class="section">
+        <h2 class="section-title">🏆 项目里程碑</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
       <!-- 时间线 -->
       <div class="section">
         <h2 class="section-title">📅 更新时间线</h2>
@@ -637,6 +668,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
       <!-- 承诺链 -->
       <div class="section">
         <h2 class="section-title">🔗 承诺链</h2>
+        <div class="section-body">
+          <p class="empty">暂无</p>
+        </div>
+      </div>
+
+      <!-- 里程碑 -->
+      <div class="section">
+        <h2 class="section-title">🏆 项目里程碑</h2>
         <div class="section-body">
           <p class="empty">暂无</p>
         </div>
@@ -800,6 +839,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
             <span class="commit-person">项目经理</span>
             <span class="commit-action">按时完成开发任务，保证代码质量。</span>
         </div>
+        </div>
+      </div>
+
+      <!-- 里程碑 -->
+      <div class="section">
+        <h2 class="section-title">🏆 项目里程碑</h2>
+        <div class="section-body">
+          <div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-04</span><span class="ms-title">需求对齐</span><span class="ms-desc">项目需求对齐及排期沟通会议</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-05</span><span class="ms-title">方案评审</span><span class="ms-desc">项目排期及方案评审会议</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-07</span><span class="ms-title">Skill部署评估</span><span class="ms-desc">生图生文skill部署及成本评估会议</span></div><div class="milestone-row in_progress"><span class="ms-badge">🔵</span><span class="ms-date">2026-09-01</span><span class="ms-title">开发完成</span><span class="ms-desc">全链路开发完成</span></div><div class="milestone-row planned"><span class="ms-badge">⚪</span><span class="ms-date">2026-09-15</span><span class="ms-title">测试上线</span><span class="ms-desc">测试通过并上线</span></div>
         </div>
       </div>
 
