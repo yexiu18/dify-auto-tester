@@ -3,888 +3,1067 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📊 项目管理 Backup</title>
+<title>项目管理看板</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.6; }
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --primary:#2b6bff; --success:#00a870; --warning:#e6a23c; --danger:#f56c6c;
+  --text:#303133; --text-2:#606266; --text-3:#909399; --border:#e4e7ed;
+  --bg:#f5f7fa; --card-bg:#fff;
+}
+body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; }
 
 /* Header */
-.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-.header h1 { font-size: 20px; margin-bottom: 4px; }
-.header .subtitle { font-size: 12px; opacity: 0.85; }
+.top-bar { background:#fff; border-bottom:1px solid var(--border); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+.top-bar h1 { font-size:18px; font-weight:600; color:var(--text); }
+.top-bar .meta { font-size:12px; color:var(--text-3); }
 
 /* Tabs */
-.tabs { display: flex; gap: 4px; padding: 12px 24px; background: white; border-bottom: 1px solid #e5e7eb; overflow-x: auto; position: sticky; top: 60px; z-index: 99; }
-.tab-button { padding: 8px 20px; border: none; background: #f3f4f6; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; font-weight: 500; color: #6b7280; transition: all 0.2s; white-space: nowrap; }
-.tab-button:hover { background: #e0e7ff; color: #4f46e5; }
-.tab-button.active { background: #4f46e5; color: white; }
+.tabs { display:flex; gap:0; padding:0 24px; background:#fff; border-bottom:1px solid var(--border); overflow-x:auto; position:sticky; top:55px; z-index:99; }
+.tab { padding:10px 24px; border:none; background:none; cursor:pointer; font-size:14px; color:var(--text-3); border-bottom:2px solid transparent; transition:all .2s; white-space:nowrap; }
+.tab:hover { color:var(--primary); }
+.tab.active { color:var(--primary); border-bottom-color:var(--primary); font-weight:500; }
 
-/* Tab Content */
-.tab-content { display: none; padding: 20px 24px; max-width: 1000px; margin: 0 auto; }
-.tab-content.active { display: block; }
+/* Content */
+.tab-content { display:none; padding:20px 24px; max-width:960px; margin:0 auto; }
+.tab-content.active { display:block; }
 
-/* Section */
-.section { background: white; border-radius: 12px; margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-.section-title { font-size: 16px; font-weight: 600; padding: 14px 20px; background: #f8f9fb; border-bottom: 1px solid #e5e7eb; cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: space-between; }
-.section-title:hover { background: #f0f1f5; }
-.section-body { padding: 16px 20px; }
-.section.collapsed .section-body { display: none; }
+/* Card */
+.card { background:var(--card-bg); border-radius:6px; margin-bottom:12px; border:1px solid var(--border); overflow:hidden; }
+.card-header { padding:12px 20px; font-size:15px; font-weight:500; color:var(--text); border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; cursor:pointer; user-select:none; background:#fafbfc; }
+.card-header:hover { background:#f5f7fa; }
+.card-body { padding:16px 20px; }
+.card.collapsed .card-body { display:none; }
+.card.collapsed .arrow { transform:rotate(-90deg); }
+.arrow { font-size:12px; color:var(--text-3); transition:transform .2s; }
 
 /* Overview */
-.overview { font-size: 14px; color: #374151; line-height: 1.8; margin-bottom: 12px; }
-.overview h3, .objectives h3, .key-points h3 { font-size: 13px; color: #6b7280; margin: 12px 0 4px; }
+.overview-text { color:var(--text-2); line-height:1.8; margin-bottom:8px; }
+.sub-label { font-size:13px; color:var(--text-3); margin:10px 0 4px; }
+.sub-text { color:var(--text-2); }
 
 /* Progress */
-.progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.progress-label { width: 80px; font-size: 13px; font-weight: 500; text-align: right; flex-shrink: 0; }
-.progress-bar { flex: 1; height: 20px; background: #e5e7eb; border-radius: 10px; overflow: hidden; max-width: 300px; }
-.progress-fill { height: 100%; border-radius: 10px; transition: width 0.5s ease; }
-.progress-text { font-size: 12px; color: #6b7280; width: 36px; }
-.progress-detail { font-size: 12px; color: #9ca3af; }
+.pg-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.pg-label { width:72px; font-size:13px; font-weight:500; text-align:right; flex-shrink:0; color:var(--text-2); }
+.pg-bar { flex:1; height:8px; background:#ebeef5; border-radius:4px; overflow:hidden; max-width:280px; }
+.pg-fill { height:100%; border-radius:4px; transition:width .5s; }
+.pg-text { font-size:12px; color:var(--text-3); width:34px; }
+.pg-detail { font-size:12px; color:var(--text-3); }
 
-/* Badge */
-.badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+/* Tags */
+.tag { display:inline-block; padding:1px 8px; border:1px solid; border-radius:3px; font-size:12px; line-height:1.6; }
 
-/* Action Items */
-.item-row { padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
-.item-row:last-child { border-bottom: none; }
-.item-main { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.item-title { font-size: 14px; font-weight: 500; }
-.item-detail { font-size: 12px; color: #9ca3af; margin-top: 4px; margin-left: 4px; }
-.owner { font-size: 12px; color: #6366f1; background: #eef2ff; padding: 1px 6px; border-radius: 4px; }
-.due { font-size: 12px; color: #6b7280; }
-.ddl-unknown { font-size: 12px; color: #ef4444; background: #fef2f2; padding: 1px 6px; border-radius: 4px; }
+/* List items */
+.list-item { padding:8px 0; border-bottom:1px solid #f0f2f5; }
+.list-item:last-child { border-bottom:none; }
+.li-main { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.li-title { font-size:14px; color:var(--text); }
+.person { font-size:12px; color:var(--primary); background:#ecf2ff; padding:1px 6px; border-radius:3px; }
+.due-date { font-size:12px; color:var(--text-3); }
+.ddl-warn { font-size:12px; color:var(--danger); background:#fef0f0; padding:1px 6px; border-radius:3px; }
 
 /* Roles */
-.roles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-.role-card { background: #f8f9fb; border-radius: 8px; padding: 12px; text-align: center; }
-.role-person { font-size: 14px; font-weight: 600; color: #1f2937; }
-.role-title { font-size: 12px; color: #6366f1; margin-top: 2px; }
-.role-detail { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+.roles-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; }
+.role-item { background:#f5f7fa; border-radius:6px; padding:12px; text-align:center; }
+.role-name { font-size:14px; font-weight:600; color:var(--text); }
+.role-role { font-size:12px; color:var(--primary); margin-top:2px; }
 
 /* Commitments */
-.commit-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
-.commit-row:last-child { border-bottom: none; }
-.commit-person { font-size: 14px; font-weight: 500; }
-.commit-arrow { font-size: 14px; color: #6b7280; }
-.commit-action { font-size: 13px; color: #374151; margin-left: 4px; }
+.commit-item { display:flex; align-items:center; gap:6px; padding:6px 0; border-bottom:1px solid #f0f2f5; }
+.commit-item:last-child { border-bottom:none; }
+.commit-from,.commit-to { font-weight:500; font-size:14px; }
+.commit-arrow { color:var(--text-3); font-size:14px; }
+.commit-text { font-size:13px; color:var(--text-2); margin-left:4px; }
+
+/* Milestone Timeline */
+.ms-timeline { padding-left:4px; }
+.ms-item { display:flex; gap:0; position:relative; }
+.ms-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+.ms-dot { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; flex-shrink:0; z-index:1; }
+.ms-line { width:2px; flex:1; min-height:20px; border-left:2px solid; border-color:inherit; }
+.ms-line-show { min-height:28px; margin-top:-2px; }
+.ms-card { flex:1; margin-left:16px; margin-bottom:20px; padding:12px 16px; background:#f5f7fa; border-radius:6px; border:1px solid var(--border); }
+.ms-card-header { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.ms-card-date { font-size:13px; font-weight:500; color:var(--text-2); }
+.ms-status-tag { font-size:11px; padding:1px 6px; border-radius:3px; }
+.ms-card-title { font-size:15px; font-weight:600; color:var(--text); margin-bottom:2px; }
+.ms-card-desc { font-size:13px; color:var(--text-3); line-height:1.7; }
 
 /* Timeline */
-.milestone-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
-.milestone-row.done { opacity: 0.7; }
-.ms-badge { font-size: 18px; width: 24px; text-align: center; }
-.ms-date { background: #e0e7ff; color: #4f46e5; padding: 2px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
-.ms-title { font-weight: 600; flex: 1; }
-.ms-desc { color: #6b7280; font-size: 13px; }
-
-.timeline-row { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid #f3f4f6; }
-.timeline-row:last-child { border-bottom: none; }
-.timeline-time { font-size: 12px; color: #9ca3af; white-space: nowrap; width: 120px; }
-.timeline-event { font-size: 13px; font-weight: 500; }
-.timeline-detail { font-size: 12px; color: #6b7280; }
+.tl-row { display:flex; gap:12px; padding:4px 0; border-bottom:1px solid #f0f2f5; }
+.tl-row:last-child { border-bottom:none; }
+.tl-time { font-size:12px; color:var(--text-3); white-space:nowrap; width:120px; }
+.tl-event { font-size:13px; color:var(--text-2); }
 
 /* Misc */
-.empty { color: #9ca3af; font-size: 14px; padding: 8px 0; }
-.footer { text-align: center; padding: 16px; font-size: 12px; color: #9ca3af; }
+.empty-state { color:var(--text-3); font-size:14px; padding:8px 0; text-align:center; }
+.footer { text-align:center; padding:16px; font-size:12px; color:var(--text-3); }
 
-/* Dark mode */
 @media (prefers-color-scheme: dark) {
-  body { background: #111827; color: #e5e7eb; }
-  .section { background: #1f2937; }
-  .section-title { background: #1a1f36; border-color: #374151; }
-  .section-title:hover { background: #232b4a; }
-  .role-card { background: #1a1f36; }
-  .progress-bar { background: #374151; }
+  :root { --text:#e5e7eb; --text-2:#b0b3b8; --text-3:#71767f; --border:#2d2d2d; --bg:#131415; --card-bg:#1e1f20; }
+  .card-header { background:#1a1b1c; }
+  .ms-card { background:#1a1b1c; }
+  .role-item { background:#1a1b1c; }
 }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>📊 项目管理 Backup</h1>
-  <div class="subtitle">最后更新：2026-08-10 17:47 · 共 5 个项目</div>
+<div class="top-bar">
+  <h1>项目管理看板</h1>
+  <span class="meta">更新于 2026-08-10 17:52 · 5 个项目</span>
 </div>
 
 <div class="tabs">
-<button class="tab-button active" onclick="switchTab(event, 'ecom')">屈臣氏-ecom</button>
-<button class="tab-button " onclick="switchTab(event, 'LBS')">LBS</button>
-<button class="tab-button " onclick="switchTab(event, '千店千图')">千店千图</button>
-<button class="tab-button " onclick="switchTab(event, 'AIPOG')">AIPOG</button>
-<button class="tab-button " onclick="switchTab(event, 'KOS')">小红书KOS</button>
+<button class="tab active" onclick="switchTab(event,'ecom')">屈臣氏-ecom</button>
+<button class="tab " onclick="switchTab(event,'LBS')">LBS</button>
+<button class="tab " onclick="switchTab(event,'千店千图')">千店千图</button>
+<button class="tab " onclick="switchTab(event,'AIPOG')">AIPOG</button>
+<button class="tab " onclick="switchTab(event,'KOS')">小红书KOS</button>
 
 </div>
 
 
     <div class="tab-content active" data-project="ecom">
-      <!-- 项目说明 -->
-      <div class="section">
-        <h2 class="section-title">📋 项目说明</h2>
-        <div class="section-body">
-          <div class="overview">项目旨在开发代码以计算真实备货量，并估算成本，同时考虑分货上限和库存调整等因素。</div>
-          <div class="objectives"><h3>目标</h3>["开发代码以计算真实备货量。", "估算库存成本，并考虑分货上限。", "处理库存调整、库存转移、库存退货等情况。"]</div>
-          <div class="key-points"><h3>重点关注</h3>["真实备货量的计算公式。", "分货上限和库存调整对成本的影响。", "开发新口径的增量&成本代码。"]</div>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目说明</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="overview-text">项目旨在开发代码以计算真实备货量，并估算成本，同时考虑分货上限和库存调整等因素。</div>
+          <div class="sub-label">目标</div><div class="sub-text">["开发代码以计算真实备货量。", "估算库存成本，并考虑分货上限。", "处理库存调整、库存转移、库存退货等情况。"]</div>
+          <div class="sub-label">重点关注</div><div class="sub-text">["真实备货量的计算公式。", "分货上限和库存调整对成本的影响。", "开发新口径的增量&成本代码。"]</div>
         </div>
       </div>
 
-      <!-- 当前进度 -->
-      <div class="section">
-        <h2 class="section-title">📊 当前进度</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>当前进度</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="progress-row">
-            <span class="progress-label">代码开发</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#3b82f6"></div></div><span class="progress-text">60%</span>
-            <span class="progress-detail">正在进行代码开发，预计需要一天时间。</span>
+        <div class="pg-row">
+          <span class="pg-label">代码开发</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:60%;background:#2b6bff"></div></div><span class="pg-text">60%</span>
+          <span class="pg-detail">正在进行代码开发，预计需要一天时间。</span>
         </div>
         </div>
       </div>
 
-      <!-- 待办清单 -->
-      <div class="section">
-        <h2 class="section-title">✅ 待办清单</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>待办清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">开发新口径的增量&成本代码</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">开发新口径的增量&成本代码</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">跑新口径数据</span>
-                <span class="owner">@Summer Zhu</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">跑新口径数据</span>
+            <span class="person">@Summer Zhu</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实lt_date</span>
-                <span class="owner">@Summer Zhu</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">核实lt_date</span>
+            <span class="person">@Summer Zhu</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实分货记录</span>
-                <span class="owner">@Summer Zhu</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">核实分货记录</span>
+            <span class="person">@Summer Zhu</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实安全库存</span>
-                <span class="owner">@Halle Zhang</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">核实安全库存</span>
+            <span class="person">@Halle Zhang</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实门店每个商品分货的上下限</span>
-                <span class="owner">@Halle Zhang</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">核实门店每个商品分货的上下限</span>
+            <span class="person">@Halle Zhang</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实库存成本计算逻辑</span>
-                <span class="owner">@Summer Zhu</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">核实库存成本计算逻辑</span>
+            <span class="person">@Summer Zhu</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实facing要求</span>
-                <span class="owner">@Summer Zhu</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">核实facing要求</span>
+            <span class="person">@Summer Zhu</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">库存成本计算问题</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">库存成本计算问题</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">商品单元囤货成本近似计算方法</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">商品单元囤货成本近似计算方法</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">业务指标评估</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">业务指标评估</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">总缺货率、实际缺货率、陈列图缺货率的区别</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">总缺货率、实际缺货率、陈列图缺货率的区别</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">如何取不受缺货影响的样本</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">如何取不受缺货影响的样本</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">数据量问题讨论</span>
-                <span class="owner">@Daniel Peng</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">数据量问题讨论</span>
+            <span class="person">@Daniel Peng</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">门店分组问题讨论</span>
-                <span class="owner">@江炜烨</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">门店分组问题讨论</span>
+            <span class="person">@江炜烨</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">数据复盘文件问题讨论</span>
-                <span class="owner">@Halle Zhang</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">数据复盘文件问题讨论</span>
+            <span class="person">@Halle Zhang</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">预测准确率文件问题讨论</span>
-                <span class="owner">@Jun Tang</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">预测准确率文件问题讨论</span>
+            <span class="person">@Jun Tang</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">新旧口径差异讨论</span>
-                <span class="owner">@Halle Zhang</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">新旧口径差异讨论</span>
+            <span class="person">@Halle Zhang</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">模型评价指标与业务指标关系讨论</span>
-                <span class="owner">@朱雨佳</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">模型评价指标与业务指标关系讨论</span>
+            <span class="person">@朱雨佳</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">数据准确性问题讨论</span>
-                <span class="owner">@Summer Zhu</span>
-                
-            </div>
-            
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">数据准确性问题讨论</span>
+            <span class="person">@Summer Zhu</span>
+          </div>
         </div>
         </div>
       </div>
 
-      <!-- 风险 -->
-      <div class="section">
-        <h2 class="section-title">⚠️ 风险清单</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>风险清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">分货算法考虑不周全</span>
-                
-                <span class="badge open">⚠️ 待解决</span>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">中</span>
+            <span class="li-title">分货算法考虑不周全</span>
+            
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">待解决</span>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">中</span>
+            <span class="li-title">库存成本计算逻辑可能存在偏差</span>
+            
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">待解决</span>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">中</span>
+            <span class="li-title">facing要求理解存在偏差</span>
+            
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">待解决</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目里程碑</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="ms-timeline">
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-04-01</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
             </div>
-            <div class='item-detail'>算法没有考虑库存调整、库存转移、库存退货等情况，可能存在错漏。</div>
+            <div class="ms-card-title">项目启动</div>
+            <div class="ms-card-desc">ECOM销量预测项目正式启动，核心目标为融合用户需求、商品特征、地域适配性、营销节庆、库存等多维度因子，对门店商品销量进行精准预测，支撑大促备货、新品冷启动、新店冷启动等场景的库存与货盘优化</div>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">库存成本计算逻辑可能存在偏差</span>
-                
-                <span class="badge open">⚠️ 待解决</span>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-06-01</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
             </div>
-            <div class='item-detail'>目前库存成本计算逻辑可能存在偏差，需要进一步核实。</div>
+            <div class="ms-card-title">前期特征梳理</div>
+            <div class="ms-card-desc">江炜烨完成特征梳理，计划6月底输出MVP版本并开展POC验证</div>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">facing要求理解存在偏差</span>
-                
-                <span class="badge open">⚠️ 待解决</span>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-06-03</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
             </div>
-            <div class='item-detail'>对facing要求的理解可能存在偏差，需要进一步确认。</div>
+            <div class="ms-card-title">模型迭代优化（京东/饿了么单独建模）</div>
+            <div class="ms-card-desc">针对京东、饿了么渠道数据特征单独开发建模，业务方期望6月底输出与实际数据对比的测试结果</div>
+          </div>
         </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-06-11</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">多维度模型调整</div>
+            <div class="ms-card-desc">取消商品分层筛选、去掉长期缺货/无动销样本剔除规则、调整评估指标、移除归一化操作、优化时间索引与折扣粒度输入方式；明确7月完成算法POC的目标</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-06-24</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">第一版模型实验完成</div>
+            <div class="ms-card-desc">单看WMAPE指标模型与人工持平（60%左右），Bias指标远优于人工</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-06-30</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">POC结果输出</div>
+            <div class="ms-card-desc">完成POC结果输出，明确7月7-8日训练出正向结果后，7月15日-7月26日为POC验证周期</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-07-14</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">特征清单确认</div>
+            <div class="ms-card-desc">完成特征清单确认，待江炜烨输出线下实验效果后确认下一步动作</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-07-16</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">0716档期POC数据输出</div>
+            <div class="ms-card-desc">完成0716档期POC数据输出，与业务方确认结果口径，判断是否可汇报</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-07-30</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">POC算法与BI对数</div>
+            <div class="ms-card-desc">完成0716-0729两周POC的算法与BI对数，确认差异解释，锁定当日分货结果的最晚交付时间</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-08-05</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">V2版本模型优化启动</div>
+            <div class="ms-card-desc">核心从追求计算精度向追求业务收益演进，回测范围覆盖2026年1月29日-6月18日的6个档期</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line " style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-08-10</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">V2模型效果验证完成</div>
+            <div class="ms-card-desc">WMAPE与老模型持平（0.831），Bias略有上升（0.340），预测商品范围提升；预测偏低区间占比从15.63%降至13.46%，预估超出部分周转周数8周以上占比砍半，整体更贴合业务实际需求</div>
+          </div>
+        </div></div>
         </div>
       </div>
 
-      <!-- 人员角色 -->
-      <div class="section">
-        <h2 class="section-title">👥 人员角色</h2>
-        <div class="section-body"><div class="roles-grid"><div class="role-card">
-            <div class="role-person">江炜烨</div>
-            <div class="role-title">开发者</div>
-            <div class='role-detail'>负责开发代码以计算真实备货量和估算成本。</div>
-        </div><div class="role-card">
-            <div class="role-person">Halle Zhang(张楚君)</div>
-            <div class="role-title">数据提供者</div>
-            <div class='role-detail'>提供数据和协助开发代码。</div>
-        </div><div class="role-card">
-            <div class="role-person">Summer Zhu(朱文云)</div>
-            <div class="role-title">业务顾问</div>
-            <div class='role-detail'>提供业务指导和数据解释。</div>
-        </div></div></div>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>人员角色</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body"><div class="roles-grid"><div class="role-item">
+              <div class="role-name">江炜烨</div>
+              <div class="role-role">开发者</div>
+            </div><div class="role-item">
+              <div class="role-name">Halle Zhang(张楚君)</div>
+              <div class="role-role">数据提供者</div>
+            </div><div class="role-item">
+              <div class="role-name">Summer Zhu(朱文云)</div>
+              <div class="role-role">业务顾问</div>
+            </div></div></div>
       </div>
 
-      <!-- 承诺链 -->
-      <div class="section">
-        <h2 class="section-title">🔗 承诺链</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>承诺链</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 里程碑 -->
-      <div class="section">
-        <h2 class="section-title">🏆 项目里程碑</h2>
-        <div class="section-body">
-          <div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-04-01</span><span class="ms-title">项目启动</span><span class="ms-desc">ECOM销量预测项目正式启动，核心目标为融合用户需求、商品特征、地域适配性、营销节庆、库存等多维度因子，对门店商品销量进行精准预测，支撑大促备货、新品冷启动、新店冷启动等场景的库存与货盘优化</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-06-01</span><span class="ms-title">前期特征梳理</span><span class="ms-desc">江炜烨完成特征梳理，计划6月底输出MVP版本并开展POC验证</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-06-03</span><span class="ms-title">模型迭代优化（京东/饿了么单独建模）</span><span class="ms-desc">针对京东、饿了么渠道数据特征单独开发建模，业务方期望6月底输出与实际数据对比的测试结果</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-06-11</span><span class="ms-title">多维度模型调整</span><span class="ms-desc">取消商品分层筛选、去掉长期缺货/无动销样本剔除规则、调整评估指标、移除归一化操作、优化时间索引与折扣粒度输入方式；明确7月完成算法POC的目标</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-06-24</span><span class="ms-title">第一版模型实验完成</span><span class="ms-desc">单看WMAPE指标模型与人工持平（60%左右），Bias指标远优于人工</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-06-30</span><span class="ms-title">POC结果输出</span><span class="ms-desc">完成POC结果输出，明确7月7-8日训练出正向结果后，7月15日-7月26日为POC验证周期</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-07-14</span><span class="ms-title">特征清单确认</span><span class="ms-desc">完成特征清单确认，待江炜烨输出线下实验效果后确认下一步动作</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-07-16</span><span class="ms-title">0716档期POC数据输出</span><span class="ms-desc">完成0716档期POC数据输出，与业务方确认结果口径，判断是否可汇报</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-07-30</span><span class="ms-title">POC算法与BI对数</span><span class="ms-desc">完成0716-0729两周POC的算法与BI对数，确认差异解释，锁定当日分货结果的最晚交付时间</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-05</span><span class="ms-title">V2版本模型优化启动</span><span class="ms-desc">核心从追求计算精度向追求业务收益演进，回测范围覆盖2026年1月29日-6月18日的6个档期</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-10</span><span class="ms-title">V2模型效果验证完成</span><span class="ms-desc">WMAPE与老模型持平（0.831），Bias略有上升（0.340），预测商品范围提升；预测偏低区间占比从15.63%降至13.46%，预估超出部分周转周数8周以上占比砍半，整体更贴合业务实际需求</span></div>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>更新时间线</span><span class="arrow">&#9662;</span>
         </div>
-      </div>
-
-      <!-- 时间线 -->
-      <div class="section">
-        <h2 class="section-title">📅 更新时间线</h2>
-        <div class="section-body">
-          <div class="timeline-row">
-            <span class="timeline-time">2026-08-10 17:36</span>
-            <span class="timeline-event">AI历史归纳</span>
-            <span class='timeline-detail'>从8月群消息中提取项目信息（266条消息）</span>
+        <div class="card-body">
+          <div class="tl-row">
+          <span class="tl-time">2026-08-10 17:36</span>
+          <span class="tl-event">AI历史归纳</span>
         </div>
         </div>
       </div>
 
     </div>
     <div class="tab-content " data-project="LBS">
-      <!-- 项目说明 -->
-      <div class="section">
-        <h2 class="section-title">📋 项目说明</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目说明</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
           
           
         </div>
       </div>
 
-      <!-- 当前进度 -->
-      <div class="section">
-        <h2 class="section-title">📊 当前进度</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>当前进度</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 待办清单 -->
-      <div class="section">
-        <h2 class="section-title">✅ 待办清单</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>待办清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">下周周会 review 投放3天数据+接下来节奏讨论</span>
-                <span class="owner">@_user_1</span>
-                <span class="due">📅 下周一4-5点</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-07)</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">下周周会 review 投放3天数据+接下来节奏讨论</span>
+            <span class="person">@_user_1</span><span class="due-date">下周一4-5点</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">下周周会</span>
-                <span class="owner">@_user_1, _user_2, _user_3, _user_4</span>
-                <span class="due">📅 下周一4-5点</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-07)</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">下周周会</span>
+            <span class="person">@_user_1, _user_2, _user_3, _user_4</span><span class="due-date">下周一4-5点</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">审核文件 bid_final_9grid.xlsx</span>
-                <span class="owner">@_user_1, _user_2, _user_3</span>
-                <span class="ddl-unknown">⚠️ 需找邵琦确认</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-06)</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">审核文件 bid_final_9grid.xlsx</span>
+            <span class="person">@_user_1, _user_2, _user_3</span><span class="ddl-warn">需找邵琦确认</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">调整转化不均衡统计结果输出</span>
-                <span class="owner">@user_f11752</span>
-                
-            </div>
-            <div class='item-detail'>AI提取(2026-08-04)</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">调整转化不均衡统计结果输出</span>
+            <span class="person">@user_f11752</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">完成POC</span>
-                
-                <span class="due">📅 这周</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-04)</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">完成POC</span>
+            <span class="due-date">这周</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">门店出价结果沟通</span>
-                
-                <span class="due">📅 下午四点</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-03)</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">门店出价结果沟通</span>
+            <span class="due-date">下午四点</span>
+          </div>
         </div>
         </div>
       </div>
 
-      <!-- 风险 -->
-      <div class="section">
-        <h2 class="section-title">⚠️ 风险清单</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>风险清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">强化规则推出时间不确定</span>
-                
-                <span class="badge open">⚠️ 待解决</span>
-            </div>
-            <div class='item-detail'>强化规则出来之前业务要做POC的话，转化不均衡下钻拆分能有出价调整吗？</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">中</span>
+            <span class="li-title">强化规则推出时间不确定</span>
+            
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">待解决</span>
+          </div>
         </div>
         </div>
       </div>
 
-      <!-- 人员角色 -->
-      <div class="section">
-        <h2 class="section-title">👥 人员角色</h2>
-        <div class="section-body"><p class="empty">暂无</p></div>
-      </div>
-
-      <!-- 承诺链 -->
-      <div class="section">
-        <h2 class="section-title">🔗 承诺链</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目里程碑</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无里程碑</div>
         </div>
       </div>
 
-      <!-- 里程碑 -->
-      <div class="section">
-        <h2 class="section-title">🏆 项目里程碑</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>人员角色</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body"><div class="empty-state">暂无</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>承诺链</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 时间线 -->
-      <div class="section">
-        <h2 class="section-title">📅 更新时间线</h2>
-        <div class="section-body">
-          <div class="timeline-row">
-            <span class="timeline-time">2026-08-09 17:38</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:17</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 3 条（待办2/风险1/承诺0/进度0）</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:17</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 1 条（待办1/风险0/承诺0/进度0）</span>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>更新时间线</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="tl-row">
+          <span class="tl-time">2026-08-09 17:38</span>
+          <span class="tl-event">AI自动采集</span>
+        </div><div class="tl-row">
+          <span class="tl-time">2026-08-09 15:18</span>
+          <span class="tl-event">AI自动采集</span>
+        </div><div class="tl-row">
+          <span class="tl-time">2026-08-09 15:18</span>
+          <span class="tl-event">AI自动采集</span>
+        </div><div class="tl-row">
+          <span class="tl-time">2026-08-09 15:17</span>
+          <span class="tl-event">AI自动采集</span>
+        </div><div class="tl-row">
+          <span class="tl-time">2026-08-09 15:17</span>
+          <span class="tl-event">AI自动采集</span>
         </div>
         </div>
       </div>
 
     </div>
     <div class="tab-content " data-project="千店千图">
-      <!-- 项目说明 -->
-      <div class="section">
-        <h2 class="section-title">📋 项目说明</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目说明</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
           
           
         </div>
       </div>
 
-      <!-- 当前进度 -->
-      <div class="section">
-        <h2 class="section-title">📊 当前进度</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>当前进度</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 待办清单 -->
-      <div class="section">
-        <h2 class="section-title">✅ 待办清单</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>待办清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 风险 -->
-      <div class="section">
-        <h2 class="section-title">⚠️ 风险清单</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>风险清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 人员角色 -->
-      <div class="section">
-        <h2 class="section-title">👥 人员角色</h2>
-        <div class="section-body"><p class="empty">暂无</p></div>
-      </div>
-
-      <!-- 承诺链 -->
-      <div class="section">
-        <h2 class="section-title">🔗 承诺链</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目里程碑</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无里程碑</div>
         </div>
       </div>
 
-      <!-- 里程碑 -->
-      <div class="section">
-        <h2 class="section-title">🏆 项目里程碑</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>人员角色</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body"><div class="empty-state">暂无</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>承诺链</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 时间线 -->
-      <div class="section">
-        <h2 class="section-title">📅 更新时间线</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>更新时间线</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
     </div>
     <div class="tab-content " data-project="AIPOG">
-      <!-- 项目说明 -->
-      <div class="section">
-        <h2 class="section-title">📋 项目说明</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目说明</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
           
           
         </div>
       </div>
 
-      <!-- 当前进度 -->
-      <div class="section">
-        <h2 class="section-title">📊 当前进度</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>当前进度</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 待办清单 -->
-      <div class="section">
-        <h2 class="section-title">✅ 待办清单</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>待办清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 风险 -->
-      <div class="section">
-        <h2 class="section-title">⚠️ 风险清单</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>风险清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 人员角色 -->
-      <div class="section">
-        <h2 class="section-title">👥 人员角色</h2>
-        <div class="section-body"><p class="empty">暂无</p></div>
-      </div>
-
-      <!-- 承诺链 -->
-      <div class="section">
-        <h2 class="section-title">🔗 承诺链</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目里程碑</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无里程碑</div>
         </div>
       </div>
 
-      <!-- 里程碑 -->
-      <div class="section">
-        <h2 class="section-title">🏆 项目里程碑</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>人员角色</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body"><div class="empty-state">暂无</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>承诺链</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
-      <!-- 时间线 -->
-      <div class="section">
-        <h2 class="section-title">📅 更新时间线</h2>
-        <div class="section-body">
-          <p class="empty">暂无</p>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>更新时间线</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
     </div>
     <div class="tab-content " data-project="KOS">
-      <!-- 项目说明 -->
-      <div class="section">
-        <h2 class="section-title">📋 项目说明</h2>
-        <div class="section-body">
-          <div class="overview">小红书KOS项目旨在实现一套面向小红书平台的AI内容生成与分发系统，服务于品牌方、MCN机构及运营团队，提供从内容采集、AI生成、多账号管理到数据看板生成的全链路自动化解决方案，以提升KOS/KOC运营效率，降低人工成本，并规避平台风险。</div>
-          <div class="objectives"><h3>目标</h3>项目目标包括实现内容采集、AI生成、多账号管理和数据看板功能，确保内容合规、高效分发，并优化用户体验。</div>
-          <div class="key-points"><h3>重点关注</h3>重点关注事项包括内容采集与爆文结合、千人千面内容生成、多账号分发与风险管控，以及与B端业务达成一致。</div>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目说明</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="overview-text">小红书KOS项目旨在实现一套面向小红书平台的AI内容生成与分发系统，服务于品牌方、MCN机构及运营团队，提供从内容采集、AI生成、多账号管理到数据看板生成的全链路自动化解决方案，以提升KOS/KOC运营效率，降低人工成本，并规避平台风险。</div>
+          <div class="sub-label">目标</div><div class="sub-text">项目目标包括实现内容采集、AI生成、多账号管理和数据看板功能，确保内容合规、高效分发，并优化用户体验。</div>
+          <div class="sub-label">重点关注</div><div class="sub-text">重点关注事项包括内容采集与爆文结合、千人千面内容生成、多账号分发与风险管控，以及与B端业务达成一致。</div>
         </div>
       </div>
 
-      <!-- 当前进度 -->
-      <div class="section">
-        <h2 class="section-title">📊 当前进度</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>当前进度</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="progress-row">
-            <span class="progress-label">整体</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#3b82f6"></div></div><span class="progress-text">50%</span>
-            <span class="progress-detail">项目正在进行中，部分功能已实现，部分功能正在开发中。</span>
+        <div class="pg-row">
+          <span class="pg-label">整体</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:50%;background:#2b6bff"></div></div><span class="pg-text">50%</span>
+          <span class="pg-detail">项目正在进行中，部分功能已实现，部分功能正在开发中。</span>
         </div>
-        <div class="progress-row">
-            <span class="progress-label">需求</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:70%;background:#3b82f6"></div></div><span class="progress-text">70%</span>
-            <span class="progress-detail">需求分析已完成大部分，部分细节正在调整中。</span>
+        <div class="pg-row">
+          <span class="pg-label">需求</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:70%;background:#2b6bff"></div></div><span class="pg-text">70%</span>
+          <span class="pg-detail">需求分析已完成大部分，部分细节正在调整中。</span>
         </div>
-        <div class="progress-row">
-            <span class="progress-label">开发</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#3b82f6"></div></div><span class="progress-text">60%</span>
-            <span class="progress-detail">开发工作正在进行中，部分模块已开发完成。</span>
+        <div class="pg-row">
+          <span class="pg-label">开发</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:60%;background:#2b6bff"></div></div><span class="pg-text">60%</span>
+          <span class="pg-detail">开发工作正在进行中，部分模块已开发完成。</span>
         </div>
-        <div class="progress-row">
-            <span class="progress-label">测试</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#9ca3af"></div></div><span class="progress-text">0%</span>
-            <span class="progress-detail">测试阶段尚未开始。</span>
+        <div class="pg-row">
+          <span class="pg-label">测试</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:0%;background:#c8cacc"></div></div><span class="pg-text">0%</span>
+          <span class="pg-detail">测试阶段尚未开始。</span>
         </div>
         </div>
       </div>
 
-      <!-- 待办清单 -->
-      <div class="section">
-        <h2 class="section-title">✅ 待办清单</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>待办清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">完成需求分析</span>
-                <span class="owner">@叶茂林</span>
-                <span class="due">📅 2026-08-10</span>
-            </div>
-            <div class='item-detail'>AI从群消息提取</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">完成需求分析</span>
+            <span class="person">@叶茂林</span><span class="due-date">2026-08-10</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">完成开发工作</span>
-                <span class="owner">@郑淑斌</span>
-                <span class="due">📅 2026-09-01</span>
-            </div>
-            <div class='item-detail'>AI从群消息提取</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">完成开发工作</span>
+            <span class="person">@郑淑斌</span><span class="due-date">2026-09-01</span>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">完成测试工作</span>
-                <span class="owner">@方亚婷</span>
-                <span class="due">📅 2026-09-15</span>
-            </div>
-            <div class='item-detail'>AI从群消息提取</div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
+            <span class="li-title">完成测试工作</span>
+            <span class="person">@方亚婷</span><span class="due-date">2026-09-15</span>
+          </div>
         </div>
         </div>
       </div>
 
-      <!-- 风险 -->
-      <div class="section">
-        <h2 class="section-title">⚠️ 风险清单</h2>
-        <div class="section-body">
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>风险清单</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
           
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">客户需求变更</span>
-                
-                <span class="badge open">⚠️ 待解决</span>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">中</span>
+            <span class="li-title">客户需求变更</span>
+            
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">待解决</span>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-main">
+            <span class="tag" style="border-color:#f56c6c;color:#f56c6c">高</span>
+            <span class="li-title">技术难题</span>
+            
+            <span class="tag" style="border-color:#e6a23c;color:#e6a23c">待解决</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>项目里程碑</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="ms-timeline">
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-08-04</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
             </div>
-            <div class='item-detail'>客户需求可能随时变更，需要灵活调整项目计划。</div>
+            <div class="ms-card-title">需求对齐</div>
+            <div class="ms-card-desc">项目需求对齐及排期沟通会议</div>
+          </div>
         </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#ef444420;color:#ef4444">🔴 高</span>
-                <span class="item-title">技术难题</span>
-                
-                <span class="badge open">⚠️ 待解决</span>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-08-05</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
             </div>
-            <div class='item-detail'>AI内容生成和风险管控等技术难题可能影响项目进度。</div>
+            <div class="ms-card-title">方案评审</div>
+            <div class="ms-card-desc">项目排期及方案评审会议</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#00a870">&#10003;</div>
+            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-08-07</span>
+              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+            </div>
+            <div class="ms-card-title">Skill部署评估</div>
+            <div class="ms-card-desc">生图生文skill部署及成本评估会议</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#2b6bff">&#9679;</div>
+            <div class="ms-line ms-line-show" style="border-color:#2b6bff"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-09-01</span>
+              <span class="ms-status-tag" style="background:#2b6bff1a;color:#2b6bff">进行中</span>
+            </div>
+            <div class="ms-card-title">开发完成</div>
+            <div class="ms-card-desc">全链路开发完成</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-left">
+            <div class="ms-dot" style="background:#c8cacc">&#9675;</div>
+            <div class="ms-line " style="border-color:#c8cacc"></div>
+          </div>
+          <div class="ms-card">
+            <div class="ms-card-header">
+              <span class="ms-card-date">2026-09-15</span>
+              <span class="ms-status-tag" style="background:#c8cacc1a;color:#c8cacc">计划中</span>
+            </div>
+            <div class="ms-card-title">测试上线</div>
+            <div class="ms-card-desc">测试通过并上线</div>
+          </div>
+        </div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>人员角色</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body"><div class="roles-grid"><div class="role-item">
+              <div class="role-name">郑淑斌</div>
+              <div class="role-role">开发</div>
+            </div><div class="role-item">
+              <div class="role-name">叶茂林</div>
+              <div class="role-role">产品经理</div>
+            </div><div class="role-item">
+              <div class="role-name">余思佳</div>
+              <div class="role-role">业务负责人</div>
+            </div><div class="role-item">
+              <div class="role-name">黄浦港</div>
+              <div class="role-role">后端开发</div>
+            </div><div class="role-item">
+              <div class="role-name">方亚婷</div>
+              <div class="role-role">测试</div>
+            </div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>承诺链</span><span class="arrow">&#9662;</span>
+        </div>
+        <div class="card-body">
+          <div class="commit-item">
+          <span class="commit-from">叶茂林</span>
+          <span class="commit-arrow">&rarr;</span>
+          <span class="commit-to">全体团队成员</span>
+          <span class="commit-text">确保项目按计划推进，及时沟通项目进展。</span>
+        </div><div class="commit-item">
+          <span class="commit-from">余思佳</span>
+          <span class="commit-arrow">&rarr;</span>
+          <span class="commit-to">客户</span>
+          <span class="commit-text">及时与客户沟通，确保需求理解一致。</span>
+        </div><div class="commit-item">
+          <span class="commit-from">郑淑斌</span>
+          <span class="commit-arrow">&rarr;</span>
+          <span class="commit-to">项目经理</span>
+          <span class="commit-text">按时完成开发任务，保证代码质量。</span>
         </div>
         </div>
       </div>
 
-      <!-- 人员角色 -->
-      <div class="section">
-        <h2 class="section-title">👥 人员角色</h2>
-        <div class="section-body"><div class="roles-grid"><div class="role-card">
-            <div class="role-person">郑淑斌</div>
-            <div class="role-title">开发</div>
-            <div class='role-detail'>负责后台原型、移动端原型和流程图的开发。</div>
-        </div><div class="role-card">
-            <div class="role-person">叶茂林</div>
-            <div class="role-title">产品经理</div>
-            <div class='role-detail'>负责产品需求分析、功能规划和项目进度管理。</div>
-        </div><div class="role-card">
-            <div class="role-person">余思佳</div>
-            <div class="role-title">业务负责人</div>
-            <div class='role-detail'>负责与客户沟通、需求确认和项目推进。</div>
-        </div><div class="role-card">
-            <div class="role-person">黄浦港</div>
-            <div class="role-title">后端开发</div>
-            <div class='role-detail'>负责后端功能的开发。</div>
-        </div><div class="role-card">
-            <div class="role-person">方亚婷</div>
-            <div class="role-title">测试</div>
-            <div class='role-detail'>负责测试工作，确保产品质量。</div>
-        </div></div></div>
-      </div>
-
-      <!-- 承诺链 -->
-      <div class="section">
-        <h2 class="section-title">🔗 承诺链</h2>
-        <div class="section-body">
-          
-        <div class="commit-row">
-            <span class="commit-person">叶茂林</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">全体团队成员</span>
-            <span class="commit-action">确保项目按计划推进，及时沟通项目进展。</span>
+      <div class="card">
+        <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>更新时间线</span><span class="arrow">&#9662;</span>
         </div>
-        <div class="commit-row">
-            <span class="commit-person">余思佳</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">客户</span>
-            <span class="commit-action">及时与客户沟通，确保需求理解一致。</span>
-        </div>
-        <div class="commit-row">
-            <span class="commit-person">郑淑斌</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">项目经理</span>
-            <span class="commit-action">按时完成开发任务，保证代码质量。</span>
-        </div>
-        </div>
-      </div>
-
-      <!-- 里程碑 -->
-      <div class="section">
-        <h2 class="section-title">🏆 项目里程碑</h2>
-        <div class="section-body">
-          <div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-04</span><span class="ms-title">需求对齐</span><span class="ms-desc">项目需求对齐及排期沟通会议</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-05</span><span class="ms-title">方案评审</span><span class="ms-desc">项目排期及方案评审会议</span></div><div class="milestone-row done"><span class="ms-badge">✅</span><span class="ms-date">2026-08-07</span><span class="ms-title">Skill部署评估</span><span class="ms-desc">生图生文skill部署及成本评估会议</span></div><div class="milestone-row in_progress"><span class="ms-badge">🔵</span><span class="ms-date">2026-09-01</span><span class="ms-title">开发完成</span><span class="ms-desc">全链路开发完成</span></div><div class="milestone-row planned"><span class="ms-badge">⚪</span><span class="ms-date">2026-09-15</span><span class="ms-title">测试上线</span><span class="ms-desc">测试通过并上线</span></div>
-        </div>
-      </div>
-
-      <!-- 时间线 -->
-      <div class="section">
-        <h2 class="section-title">📅 更新时间线</h2>
-        <div class="section-body">
-          <div class="timeline-row">
-            <span class="timeline-time">2026-08-10 16:47</span>
-            <span class="timeline-event">AI 自动提取项目信息</span>
-            <span class='timeline-detail'>从 156 条群消息 + 4 个文档中提取项目全貌</span>
+        <div class="card-body">
+          <div class="tl-row">
+          <span class="tl-time">2026-08-10 16:47</span>
+          <span class="tl-event">AI 自动提取项目信息</span>
         </div>
         </div>
       </div>
 
     </div>
 
-<div class="footer">
-  project-backup v1.0 · 自动采集 + 手动维护
-</div>
+<div class="footer">project-backup · 自动采集 + 手动维护</div>
 
 <script>
-function switchTab(evt, projectId) {
-  // Tab buttons
-  document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+function switchTab(evt, pid) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   evt.currentTarget.classList.add('active');
-  // Tab contents
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  document.querySelector(`.tab-content[data-project="${projectId}"]`).classList.add('active');
+  document.querySelector('.tab-content[data-project="' + pid + '"]').classList.add('active');
 }
-
-// Section collapse/expand
-document.querySelectorAll('.section-title').forEach(title => {
-  title.addEventListener('click', () => {
-    title.parentElement.classList.toggle('collapsed');
-  });
-});
 </script>
-
 </body>
 </html>
