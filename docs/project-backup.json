@@ -672,7 +672,7 @@
         "project_id": "KOS",
         "title": "完成需求分析",
         "detail": "AI从群消息提取",
-        "owner": "user_2615e0",
+        "owner": "叶茂林",
         "due": "2026-08-10",
         "status": "pending",
         "ddl_unknown": "",
@@ -685,7 +685,7 @@
         "project_id": "KOS",
         "title": "完成开发工作",
         "detail": "AI从群消息提取",
-        "owner": "user_cac35d",
+        "owner": "郑淑斌",
         "due": "2026-09-01",
         "status": "pending",
         "ddl_unknown": "",
@@ -698,7 +698,7 @@
         "project_id": "KOS",
         "title": "完成测试工作",
         "detail": "AI从群消息提取",
-        "owner": "user_f77e66",
+        "owner": "方亚婷",
         "due": "2026-09-15",
         "status": "pending",
         "ddl_unknown": "",
@@ -737,7 +737,7 @@
       {
         "id": 4,
         "project_id": "KOS",
-        "person": "user_cac35d",
+        "person": "郑淑斌",
         "role": "开发",
         "detail": "负责后台原型、移动端原型和流程图的开发。",
         "created_at": "2026-08-10 16:47:44"
@@ -745,7 +745,7 @@
       {
         "id": 5,
         "project_id": "KOS",
-        "person": "user_2615e0",
+        "person": "叶茂林",
         "role": "产品经理",
         "detail": "负责产品需求分析、功能规划和项目进度管理。",
         "created_at": "2026-08-10 16:47:44"
@@ -753,7 +753,7 @@
       {
         "id": 6,
         "project_id": "KOS",
-        "person": "user_7494d9",
+        "person": "余思佳",
         "role": "业务负责人",
         "detail": "负责与客户沟通、需求确认和项目推进。",
         "created_at": "2026-08-10 16:47:44"
@@ -761,7 +761,7 @@
       {
         "id": 7,
         "project_id": "KOS",
-        "person": "user_1c84a7",
+        "person": "黄浦港",
         "role": "后端开发",
         "detail": "负责后端功能的开发。",
         "created_at": "2026-08-10 16:47:44"
@@ -769,7 +769,7 @@
       {
         "id": 8,
         "project_id": "KOS",
-        "person": "user_f77e66",
+        "person": "方亚婷",
         "role": "测试",
         "detail": "负责测试工作，确保产品质量。",
         "created_at": "2026-08-10 16:47:44"
@@ -779,7 +779,7 @@
       {
         "id": 5,
         "project_id": "KOS",
-        "from_person": "user_2615e0",
+        "from_person": "叶茂林",
         "to_person": "全体团队成员",
         "action": "确保项目按计划推进，及时沟通项目进展。",
         "detail": "AI从群消息提取",
@@ -791,7 +791,7 @@
       {
         "id": 6,
         "project_id": "KOS",
-        "from_person": "user_7494d9",
+        "from_person": "余思佳",
         "to_person": "客户",
         "action": "及时与客户沟通，确保需求理解一致。",
         "detail": "AI从群消息提取",
@@ -803,7 +803,7 @@
       {
         "id": 7,
         "project_id": "KOS",
-        "from_person": "user_cac35d",
+        "from_person": "郑淑斌",
         "to_person": "项目经理",
         "action": "按时完成开发任务，保证代码质量。",
         "detail": "AI从群消息提取",
