@@ -705,39 +705,324 @@
   },
   "千店千图": {
     "project": "千店千图",
-    "overview": "",
-    "objectives": "",
-    "key_points": "",
-    "progress": [],
-    "action_items": [
+    "overview": "千店千图项目旨在通过算法实现门店商品陈列的智能化选品。基于多维度特征（门店基础特征、LBS特征、商圈竞对流量、订单履约、活动力度等），为每个门店生成个性化的商品陈列方案（POG），替代传统人工选品，提升动销率和销售额。项目从POC验证到系统化开发，最终实现全国规模化应用。",
+    "objectives": "1. 算法选品替代人工选品，提升动销率和销售额\n2. 实现千店千面的个性化陈列方案\n3. 覆盖后仓、闪电仓等多业态门店\n4. 最终实现全国规模化应用\n5. 系统化产品交付，支持业务自主操作",
+    "key_points": "1. 模型已能在12个大城市单店完全应用，Q4应用门店扩展到40多家\n2. 拓店实验组效果显著：动销率+1.4~2.3PT，Sales+5.6~7.1PT\n3. 冷启动模型策略调优中，聚焦尾部商品排序能力\n4. 全国扩展需要城市精细化结果支持，城市精细分组训练架构已完成\n5. 数据处理采用'先离线文件训练，后北极星表例行化'方式\n6. 9月档期FC与后仓选品已整合给业务，Yumi已确认9月可全国应用",
+    "progress": [
       {
-        "id": 44,
+        "id": 14,
         "project_id": "千店千图",
-        "title": "安排选品结果输出",
-        "detail": "AI提取(2026-08-10)",
-        "owner": "_user_1",
-        "due": "本周四",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "ai_sweep",
-        "created_at": "2026-08-10 18:01:57",
-        "updated_at": "2026-08-10 18:01:57"
+        "phase": "整体",
+        "status": "in_progress",
+        "percent": 90,
+        "detail": "验收收尾与性能优化阶段，UAT验收通过，9月全国应用",
+        "updated_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 15,
+        "project_id": "千店千图",
+        "phase": "算法模型",
+        "status": "in_progress",
+        "percent": 85,
+        "detail": "模型基本框架稳定，冷启动模型持续调优，城市精细分组训练架构完成",
+        "updated_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 16,
+        "project_id": "千店千图",
+        "phase": "系统开发",
+        "status": "done",
+        "percent": 100,
+        "detail": "前后端开发完成，SIT测试通过率95%",
+        "updated_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 17,
+        "project_id": "千店千图",
+        "phase": "测试验收",
+        "status": "in_progress",
+        "percent": 90,
+        "detail": "业务主流程验收通过，UAT数据准确性校验中",
+        "updated_at": "2026-08-10 18:31:08"
       }
     ],
+    "action_items": [],
     "risks": [],
     "roles": [],
     "commitments": [],
     "timeline": [
       {
-        "id": 23,
+        "id": 29,
         "project_id": "千店千图",
-        "event": "AI自动采集",
-        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-10 18:01:57"
+        "event": "手动导入",
+        "detail": "千店千图项目全量信息导入（背景+目标+进度+29条里程碑）",
+        "source": "manual",
+        "created_at": "2026-08-10 18:31:08"
       }
     ],
-    "milestones": []
+    "milestones": [
+      {
+        "id": 36,
+        "project_id": "千店千图",
+        "title": "项目启动与POC规划",
+        "date": "2025-05-01",
+        "description": "计划6月12日启动千城千面&千店千面POC，目标5月22日前产出POC门店选品结果",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 37,
+        "project_id": "千店千图",
+        "title": "千店千面首批结果交付",
+        "date": "2025-05-22",
+        "description": "北京、阳江、乌鲁木齐、拉萨、大理结果交付，千城千面全国模型输出进度50%",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 38,
+        "project_id": "千店千图",
+        "title": "北京单城POC结果",
+        "date": "2025-06-19",
+        "description": "后仓动销优于人工组，但SKU单产低于人工组，FC动销和单产表现不佳",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 39,
+        "project_id": "千店千图",
+        "title": "基准档期确立",
+        "date": "2025-07-17",
+        "description": "0717档期为未应用算法的基准档期",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 40,
+        "project_id": "千店千图",
+        "title": "多城POC扩展",
+        "date": "2025-08-14",
+        "description": "POC扩展到10个城市，动销增长低于对照组但店均单产提升明显，验证策略方向正确。后续采用多目标优化建模",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 41,
+        "project_id": "千店千图",
+        "title": "1016-1112档期POC",
+        "date": "2025-10-16",
+        "description": "算法组对比人工组：动销增长+1.4pt，sales增长+5.6pt",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 43,
+        "project_id": "千店千图",
+        "title": "100家后仓POC扩量",
+        "date": "2025-11-13",
+        "description": "1113-1210档期增加100家后仓进行POC",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 42,
+        "project_id": "千店千图",
+        "title": "冷启动模型POC启动",
+        "date": "2025-11-13",
+        "description": "启动冷启动模型策略调优POC，聚焦尾部商品排序能力，该档期动销率31%略高于人工30%",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 44,
+        "project_id": "千店千图",
+        "title": "项目汇报",
+        "date": "2025-12-04",
+        "description": "模型已在12个大城市单店完全应用，Q4门店扩展到40多家",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 45,
+        "project_id": "千店千图",
+        "title": "闪电仓POC扩量",
+        "date": "2025-12-11",
+        "description": "1211-0107档期增加25家闪电仓进行POC",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 47,
+        "project_id": "千店千图",
+        "title": "0108档期拓店效果",
+        "date": "2026-01-08",
+        "description": "拓店实验组vs对照组：动销率+1.4PT，Sales+7.0PT",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 46,
+        "project_id": "千店千图",
+        "title": "1211档期拓店效果",
+        "date": "2026-01-08",
+        "description": "拓店实验组vs对照组：动销率+2.3PT，Sales+7.1PT",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 48,
+        "project_id": "千店千图",
+        "title": "扩量至80组闪电仓",
+        "date": "2026-02-27",
+        "description": "采用基于气候、等级及商业成熟度的城市分组机制筛选POC店铺",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 49,
+        "project_id": "千店千图",
+        "title": "需求文档排期",
+        "date": "2026-03-20",
+        "description": "预计需求文档下周交付",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 50,
+        "project_id": "千店千图",
+        "title": "FC选品规则明确",
+        "date": "2026-03-24",
+        "description": "业务固定货盘+店铺白名单+算法预测选品",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 51,
+        "project_id": "千店千图",
+        "title": "需求评审",
+        "date": "2026-04-15",
+        "description": "组织千店千图需求评审",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 52,
+        "project_id": "千店千图",
+        "title": "需求二次评审",
+        "date": "2026-04-24",
+        "description": "输出系统技术方案，进度60%",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 53,
+        "project_id": "千店千图",
+        "title": "需求文档V1.0定稿",
+        "date": "2026-04-29",
+        "description": "明确导入货盘时支持商品排序、后仓数据过滤逻辑调整等",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 54,
+        "project_id": "千店千图",
+        "title": "前端开发完成",
+        "date": "2026-05-25",
+        "description": "",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 55,
+        "project_id": "千店千图",
+        "title": "后端开发完成",
+        "date": "2026-06-24",
+        "description": "",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 56,
+        "project_id": "千店千图",
+        "title": "进入联调阶段",
+        "date": "2026-06-25",
+        "description": "算法模型调整及训练服务器部署准备同步推进",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 57,
+        "project_id": "千店千图",
+        "title": "算法代码改造完成",
+        "date": "2026-06-29",
+        "description": "0716档期预测数据就绪",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 58,
+        "project_id": "千店千图",
+        "title": "SIT测试完成",
+        "date": "2026-07-13",
+        "description": "总进度78%",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 59,
+        "project_id": "千店千图",
+        "title": "SIT验收通过",
+        "date": "2026-07-17",
+        "description": "通过率95%，0813档期算法预测数据写入北极星",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 60,
+        "project_id": "千店千图",
+        "title": "业务UAT启动",
+        "date": "2026-07-23",
+        "description": "完成测试报告输出与业务验收前培训",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 61,
+        "project_id": "千店千图",
+        "title": "正式发布",
+        "date": "2026-07-30",
+        "description": "",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 62,
+        "project_id": "千店千图",
+        "title": "业务主流程验收通过",
+        "date": "2026-08-07",
+        "description": "UAT数据准确性校验中，预计8月10日完成",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 64,
+        "project_id": "千店千图",
+        "title": "9月全国应用确认",
+        "date": "2026-08-10",
+        "description": "FC与后仓选品已整合给业务，Yumi确认9月档期可全国应用",
+        "status": "in_progress",
+        "created_at": "2026-08-10 18:31:08"
+      },
+      {
+        "id": 63,
+        "project_id": "千店千图",
+        "title": "性能优化完成",
+        "date": "2026-08-10",
+        "description": "原导入千级商品需数小时的问题已解决",
+        "status": "done",
+        "created_at": "2026-08-10 18:31:08"
+      }
+    ]
   },
   "AIPOG": {
     "project": "AIPOG",
