@@ -351,6 +351,44 @@
         "source": "ai_collect",
         "created_at": "2026-08-10 17:36:24"
       }
+    ],
+    "milestones": [
+      {
+        "id": 4,
+        "project_id": "ecom",
+        "title": "全量上线",
+        "date": "",
+        "description": "所有门店+品类全量覆盖",
+        "status": "planned",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 1,
+        "project_id": "ecom",
+        "title": "项目启动",
+        "date": "2026-06-01",
+        "description": "ecom销量预测项目正式启动",
+        "status": "done",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 2,
+        "project_id": "ecom",
+        "title": "V1 模型上线",
+        "date": "2026-07-16",
+        "description": "第一版预测模型POC上线",
+        "status": "done",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 3,
+        "project_id": "ecom",
+        "title": "V2 模型迭代",
+        "date": "2026-08-10",
+        "description": "新口径数据应用+到家预测拆分",
+        "status": "in_progress",
+        "created_at": "2026-08-10 17:39:12"
+      }
     ]
   },
   "LBS": {
@@ -496,7 +534,8 @@
         "source": "ai_sweep",
         "created_at": "2026-08-09 15:17:29"
       }
-    ]
+    ],
+    "milestones": []
   },
   "千店千图": {
     "project": "千店千图",
@@ -508,7 +547,8 @@
     "risks": [],
     "roles": [],
     "commitments": [],
-    "timeline": []
+    "timeline": [],
+    "milestones": []
   },
   "AIPOG": {
     "project": "AIPOG",
@@ -520,7 +560,8 @@
     "risks": [],
     "roles": [],
     "commitments": [],
-    "timeline": []
+    "timeline": [],
+    "milestones": []
   },
   "KOS": {
     "project": "KOS",
@@ -720,6 +761,53 @@
         "detail": "从 156 条群消息 + 4 个文档中提取项目全貌",
         "source": "ai_extract",
         "created_at": "2026-08-10 16:47:44"
+      }
+    ],
+    "milestones": [
+      {
+        "id": 5,
+        "project_id": "KOS",
+        "title": "需求对齐",
+        "date": "2026-08-04",
+        "description": "项目需求对齐及排期沟通会议",
+        "status": "done",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 6,
+        "project_id": "KOS",
+        "title": "方案评审",
+        "date": "2026-08-05",
+        "description": "项目排期及方案评审会议",
+        "status": "done",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 7,
+        "project_id": "KOS",
+        "title": "Skill部署评估",
+        "date": "2026-08-07",
+        "description": "生图生文skill部署及成本评估会议",
+        "status": "done",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 8,
+        "project_id": "KOS",
+        "title": "开发完成",
+        "date": "2026-09-01",
+        "description": "全链路开发完成",
+        "status": "in_progress",
+        "created_at": "2026-08-10 17:39:12"
+      },
+      {
+        "id": 9,
+        "project_id": "KOS",
+        "title": "测试上线",
+        "date": "2026-09-15",
+        "description": "测试通过并上线",
+        "status": "planned",
+        "created_at": "2026-08-10 17:39:12"
       }
     ]
   }
