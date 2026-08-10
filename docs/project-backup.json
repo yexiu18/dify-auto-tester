@@ -1,456 +1,355 @@
 {
   "ecom": {
     "project": "ecom",
-    "overview": "屈臣氏电商销量预测项目。\n\n**背景**：通过算法预测屈臣氏门店的电商销量，指导备货和档期策略。\n**目标**：实现 X个门店 Y个品类的高准确率销量预测，MAPE ≤ Z%。",
-    "objectives": "- [ ] 完成历史数据清洗和特征工程\n- [ ] 训练并调优预测模型\n- [ ] 输出分档期预测结果\n- [ ] 数据应用明细交付业务侧",
-    "key_points": "- 特别关注：到家预测拆分的准确性\n- 特别关注：缺货率指标的对齐\n- 数据口径：新统计口径（2026-07-16 起）",
+    "overview": "项目旨在开发代码以计算真实备货量，并估算成本，同时考虑分货上限和库存调整等因素。",
+    "objectives": "[\"开发代码以计算真实备货量。\", \"估算库存成本，并考虑分货上限。\", \"处理库存调整、库存转移、库存退货等情况。\"]",
+    "key_points": "[\"真实备货量的计算公式。\", \"分货上限和库存调整对成本的影响。\", \"开发新口径的增量&成本代码。\"]",
     "progress": [
       {
-        "id": 1,
+        "id": 9,
         "project_id": "ecom",
-        "phase": "整体",
+        "phase": "代码开发",
         "status": "in_progress",
         "percent": 60,
-        "detail": "档期预测已产出，持续优化中",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 2,
-        "project_id": "ecom",
-        "phase": "数据",
-        "status": "done",
-        "percent": 100,
-        "detail": "历史数据清洗完成",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 3,
-        "project_id": "ecom",
-        "phase": "模型",
-        "status": "in_progress",
-        "percent": 70,
-        "detail": "V2版本迭代中",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 4,
-        "project_id": "ecom",
-        "phase": "交付",
-        "status": "in_progress",
-        "percent": 40,
-        "detail": "数据应用明细已发业务",
-        "updated_at": "2026-08-09 15:12:24"
+        "detail": "正在进行代码开发，预计需要一天时间。",
+        "updated_at": "2026-08-10 17:36:24"
       }
     ],
     "action_items": [
       {
-        "id": 1,
+        "id": 23,
         "project_id": "ecom",
-        "title": "V2预测方案输出",
-        "detail": "基于新口径",
-        "owner": "李四",
-        "due": "本周三",
-        "status": "in_progress",
-        "ddl_unknown": "",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 17,
-        "project_id": "ecom",
-        "title": "添加预测准确率分组分布",
-        "detail": "AI提取(2026-08-07)",
-        "owner": "user_274f8f",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "需找user_0fbaed确认",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:48",
-        "updated_at": "2026-08-09 17:38:48"
-      },
-      {
-        "id": 18,
-        "project_id": "ecom",
-        "title": "对比分析老版本和新版本Top选取方式及人工结果",
-        "detail": "AI提取(2026-08-07)",
-        "owner": "user_274f8f",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "无",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:48",
-        "updated_at": "2026-08-09 17:38:48"
-      },
-      {
-        "id": 15,
-        "project_id": "ecom",
-        "title": "添加预测准确率分组分布",
-        "detail": "AI提取(2026-08-07)",
-        "owner": "user_274f8f",
+        "title": "开发新口径的增量&成本代码",
+        "detail": "",
+        "owner": "江炜烨",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:33",
-        "updated_at": "2026-08-09 15:18:33"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 10,
+        "id": 24,
         "project_id": "ecom",
-        "title": "核实lt_date和fcst_lt_before数据",
-        "detail": "AI提取(2026-08-06)",
-        "owner": "user_274f8f",
+        "title": "跑新口径数据",
+        "detail": "",
+        "owner": "Summer Zhu",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 11,
+        "id": 25,
         "project_id": "ecom",
-        "title": "查询lt值为0的原因",
-        "detail": "AI提取(2026-08-06)",
-        "owner": "user_024434",
+        "title": "核实lt_date",
+        "detail": "",
+        "owner": "Summer Zhu",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 12,
+        "id": 26,
         "project_id": "ecom",
-        "title": "审查无缺货部分",
-        "detail": "AI提取(2026-08-06)",
-        "owner": "user_a63075",
+        "title": "核实分货记录",
+        "detail": "",
+        "owner": "Summer Zhu",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 13,
+        "id": 27,
         "project_id": "ecom",
-        "title": "提供增量成本计算方案",
-        "detail": "AI提取(2026-08-06)",
-        "owner": "user_274f8f",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "需找Jason确认",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
-      },
-      {
-        "id": 4,
-        "project_id": "ecom",
-        "title": "检查店铺分组是否正确",
-        "detail": "AI提取(2026-08-04)",
-        "owner": "user_a63075",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "需找炜烨确认",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:43",
-        "updated_at": "2026-08-09 15:17:43"
-      },
-      {
-        "id": 5,
-        "project_id": "ecom",
-        "title": "修正抽样人工的遗漏数据",
-        "detail": "AI提取(2026-08-04)",
-        "owner": "user_274f8f",
+        "title": "核实安全库存",
+        "detail": "",
+        "owner": "Halle Zhang",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:43",
-        "updated_at": "2026-08-09 15:17:43"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 6,
+        "id": 28,
         "project_id": "ecom",
-        "title": "更新算法版本并提高准确率",
-        "detail": "AI提取(2026-08-04)",
-        "owner": "user_0fbaed",
+        "title": "核实门店每个商品分货的上下限",
+        "detail": "",
+        "owner": "Halle Zhang",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:43",
-        "updated_at": "2026-08-09 15:17:43"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 7,
+        "id": 29,
         "project_id": "ecom",
-        "title": "准备好与炜烨之间的自动化工作",
-        "detail": "AI提取(2026-08-04)",
-        "owner": "user_024434",
+        "title": "核实库存成本计算逻辑",
+        "detail": "",
+        "owner": "Summer Zhu",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:43",
-        "updated_at": "2026-08-09 15:17:43"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 2,
+        "id": 30,
         "project_id": "ecom",
-        "title": "数据复盘确认",
-        "detail": "需找邵琦确认DDL",
-        "owner": "张三",
+        "title": "核实facing要求",
+        "detail": "",
+        "owner": "Summer Zhu",
         "due": "",
         "status": "pending",
-        "ddl_unknown": "待定",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24",
-        "updated_at": "2026-08-09 15:12:24"
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 31,
+        "project_id": "ecom",
+        "title": "库存成本计算问题",
+        "detail": "",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 32,
+        "project_id": "ecom",
+        "title": "商品单元囤货成本近似计算方法",
+        "detail": "",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 33,
+        "project_id": "ecom",
+        "title": "业务指标评估",
+        "detail": "",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 34,
+        "project_id": "ecom",
+        "title": "总缺货率、实际缺货率、陈列图缺货率的区别",
+        "detail": "",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 35,
+        "project_id": "ecom",
+        "title": "如何取不受缺货影响的样本",
+        "detail": "",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 36,
+        "project_id": "ecom",
+        "title": "数据量问题讨论",
+        "detail": "",
+        "owner": "Daniel Peng",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 37,
+        "project_id": "ecom",
+        "title": "门店分组问题讨论",
+        "detail": "",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 38,
+        "project_id": "ecom",
+        "title": "数据复盘文件问题讨论",
+        "detail": "",
+        "owner": "Halle Zhang",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 39,
+        "project_id": "ecom",
+        "title": "预测准确率文件问题讨论",
+        "detail": "",
+        "owner": "Jun Tang",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 40,
+        "project_id": "ecom",
+        "title": "新旧口径差异讨论",
+        "detail": "",
+        "owner": "Halle Zhang",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 41,
+        "project_id": "ecom",
+        "title": "模型评价指标与业务指标关系讨论",
+        "detail": "",
+        "owner": "朱雨佳",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      },
+      {
+        "id": 42,
+        "project_id": "ecom",
+        "title": "数据准确性问题讨论",
+        "detail": "",
+        "owner": "Summer Zhu",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       }
     ],
     "risks": [
       {
-        "id": 1,
-        "project_id": "ecom",
-        "title": "数据延迟上报影响预测",
-        "detail": "",
-        "level": "medium",
-        "owner": "李四",
-        "status": "resolved",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 5,
-        "project_id": "ecom",
-        "title": "个别城市WMAPE预测问题",
-        "detail": "个别城市WMAPE预测效果不佳，可能需要进一步分析",
-        "level": "medium",
-        "owner": "",
-        "status": "open",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:33",
-        "updated_at": "2026-08-09 15:18:33"
-      },
-      {
-        "id": 2,
-        "project_id": "ecom",
-        "title": "邵琦休假影响对齐节奏",
-        "detail": "",
-        "level": "low",
-        "owner": "张三",
-        "status": "open",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 4,
-        "project_id": "ecom",
-        "title": "回测无法看到也预估不出增量和成本",
-        "detail": "感觉不是长久之计",
-        "level": "high",
-        "owner": "",
-        "status": "open",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
-      }
-    ],
-    "roles": [
-      {
-        "id": 1,
-        "project_id": "ecom",
-        "person": "张三",
-        "role": "PM",
-        "detail": "整体推进",
-        "created_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 2,
-        "project_id": "ecom",
-        "person": "李四",
-        "role": "算法",
-        "detail": "模型开发",
-        "created_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 3,
-        "project_id": "ecom",
-        "person": "王五",
-        "role": "业务",
-        "detail": "需求对齐",
-        "created_at": "2026-08-09 15:12:24"
-      }
-    ],
-    "commitments": [
-      {
-        "id": 3,
-        "project_id": "ecom",
-        "from_person": "user_274f8f",
-        "to_person": "user_0fbaed",
-        "action": "询问能否取得相关数据",
-        "detail": "AI提取(2026-08-06)",
-        "status": "open",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
-      },
-      {
-        "id": 4,
-        "project_id": "ecom",
-        "from_person": "user_274f8f",
-        "to_person": "user_0fbaed",
-        "action": "等待Jason提供方案",
-        "detail": "AI提取(2026-08-06)",
-        "status": "open",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14",
-        "updated_at": "2026-08-09 15:18:14"
-      },
-      {
-        "id": 1,
-        "project_id": "ecom",
-        "from_person": "李四",
-        "to_person": "张三",
-        "action": "周三出V2方案",
-        "detail": "",
-        "status": "open",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24",
-        "updated_at": "2026-08-09 15:12:24"
-      },
-      {
-        "id": 2,
-        "project_id": "ecom",
-        "from_person": "张三",
-        "to_person": "王五",
-        "action": "方案确认后同步",
-        "detail": "",
-        "status": "open",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24",
-        "updated_at": "2026-08-09 15:12:24"
-      }
-    ],
-    "timeline": [
-      {
-        "id": 16,
-        "project_id": "ecom",
-        "event": "进度更新: 模型",
-        "detail": "新版本模型对目前定义的Top400+200+50都可以应用到，并可以给出预测值",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:48"
-      },
-      {
-        "id": 17,
-        "project_id": "ecom",
-        "event": "进度更新: 模型",
-        "detail": "新版本的Top都给预测值了，从过去5档期变成了过去4档期",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:48"
-      },
-      {
-        "id": 18,
-        "project_id": "ecom",
-        "event": "AI自动采集",
-        "detail": "提取 4 条（待办2/风险0/承诺0/进度2）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:48"
-      },
-      {
-        "id": 11,
-        "project_id": "ecom",
-        "event": "进度更新: 模型",
-        "detail": "新版本模型可以应用到目前定义的Top400+200+50，并且能够给出预测值。",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:33"
-      },
-      {
-        "id": 12,
-        "project_id": "ecom",
-        "event": "进度更新: 模型",
-        "detail": "老版本模型预测效果受限，无法预测Top品里的一部分，5%左右预测不了，新版本有所改进。",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:33"
-      },
-      {
-        "id": 13,
-        "project_id": "ecom",
-        "event": "进度更新: 模型",
-        "detail": "老版本和新版本的Top选取方式从过去5档期变为过去4档期。",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:33"
-      },
-      {
-        "id": 14,
-        "project_id": "ecom",
-        "event": "AI自动采集",
-        "detail": "提取 5 条（待办1/风险1/承诺0/进度3）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:33"
-      },
-      {
-        "id": 6,
-        "project_id": "ecom",
-        "event": "进度更新: 数据应用",
-        "detail": "核实lt_date和fcst_lt_before数据",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14"
-      },
-      {
-        "id": 7,
-        "project_id": "ecom",
-        "event": "进度更新: 数据应用",
-        "detail": "查询lt值为0的原因",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14"
-      },
-      {
         "id": 8,
         "project_id": "ecom",
-        "event": "进度更新: 模型",
-        "detail": "审查无缺货部分",
+        "title": "分货算法考虑不周全",
+        "detail": "算法没有考虑库存调整、库存转移、库存退货等情况，可能存在错漏。",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
         "id": 9,
         "project_id": "ecom",
-        "event": "AI自动采集",
-        "detail": "提取 10 条（待办4/风险1/承诺2/进度3）",
+        "title": "库存成本计算逻辑可能存在偏差",
+        "detail": "目前库存成本计算逻辑可能存在偏差，需要进一步核实。",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:14"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 3,
+        "id": 10,
         "project_id": "ecom",
-        "event": "进度更新: 数据对比分析",
-        "detail": "完成算法和人工的抽样对比，并讨论准确率提高的可能性",
+        "title": "facing要求理解存在偏差",
+        "detail": "对facing要求的理解可能存在偏差，需要进一步确认。",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
         "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:43"
+        "created_at": "2026-08-10 17:36:24",
+        "updated_at": "2026-08-10 17:36:24"
+      }
+    ],
+    "roles": [
+      {
+        "id": 9,
+        "project_id": "ecom",
+        "person": "江炜烨",
+        "role": "开发者",
+        "detail": "负责开发代码以计算真实备货量和估算成本。",
+        "created_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 4,
+        "id": 10,
         "project_id": "ecom",
-        "event": "AI自动采集",
-        "detail": "提取 5 条（待办4/风险0/承诺0/进度1）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:43"
+        "person": "Halle Zhang(张楚君)",
+        "role": "数据提供者",
+        "detail": "提供数据和协助开发代码。",
+        "created_at": "2026-08-10 17:36:24"
       },
       {
-        "id": 1,
+        "id": 11,
         "project_id": "ecom",
-        "event": "模板导入",
-        "detail": "导入 16 条数据",
-        "source": "manual",
-        "created_at": "2026-08-09 15:12:24"
+        "person": "Summer Zhu(朱文云)",
+        "role": "业务顾问",
+        "detail": "提供业务指导和数据解释。",
+        "created_at": "2026-08-10 17:36:24"
+      }
+    ],
+    "commitments": [],
+    "timeline": [
+      {
+        "id": 21,
+        "project_id": "ecom",
+        "event": "AI历史归纳",
+        "detail": "从8月群消息中提取项目信息（266条消息）",
+        "source": "ai_collect",
+        "created_at": "2026-08-10 17:36:24"
       }
     ]
   },
