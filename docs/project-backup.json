@@ -57,6 +57,32 @@
         "updated_at": "2026-08-09 15:12:24"
       },
       {
+        "id": 17,
+        "project_id": "ecom",
+        "title": "添加预测准确率分组分布",
+        "detail": "AI提取(2026-08-07)",
+        "owner": "user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找user_0fbaed确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:48",
+        "updated_at": "2026-08-09 17:38:48"
+      },
+      {
+        "id": 18,
+        "project_id": "ecom",
+        "title": "对比分析老版本和新版本Top选取方式及人工结果",
+        "detail": "AI提取(2026-08-07)",
+        "owner": "user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "无",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:48",
+        "updated_at": "2026-08-09 17:38:48"
+      },
+      {
         "id": 15,
         "project_id": "ecom",
         "title": "添加预测准确率分组分布",
@@ -315,6 +341,30 @@
     ],
     "timeline": [
       {
+        "id": 16,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "新版本模型对目前定义的Top400+200+50都可以应用到，并可以给出预测值",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:48"
+      },
+      {
+        "id": 17,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "新版本的Top都给预测值了，从过去5档期变成了过去4档期",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:48"
+      },
+      {
+        "id": 18,
+        "project_id": "ecom",
+        "event": "AI自动采集",
+        "detail": "提取 4 条（待办2/风险0/承诺0/进度2）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:48"
+      },
+      {
         "id": 11,
         "project_id": "ecom",
         "event": "进度更新: 模型",
@@ -412,6 +462,19 @@
     "progress": [],
     "action_items": [
       {
+        "id": 19,
+        "project_id": "LBS",
+        "title": "下周周会 review 投放3天数据+接下来节奏讨论",
+        "detail": "AI提取(2026-08-07)",
+        "owner": "_user_1",
+        "due": "下周一4-5点",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:54",
+        "updated_at": "2026-08-09 17:38:54"
+      },
+      {
         "id": 16,
         "project_id": "LBS",
         "title": "下周周会",
@@ -495,6 +558,14 @@
     "commitments": [],
     "timeline": [
       {
+        "id": 19,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-09 17:38:54"
+      },
+      {
         "id": 15,
         "project_id": "LBS",
         "event": "AI自动采集",
@@ -551,5 +622,206 @@
     "roles": [],
     "commitments": [],
     "timeline": []
+  },
+  "KOS": {
+    "project": "KOS",
+    "overview": "小红书KOS项目旨在实现一套面向小红书平台的AI内容生成与分发系统，服务于品牌方、MCN机构及运营团队，提供从内容采集、AI生成、多账号管理到数据看板生成的全链路自动化解决方案，以提升KOS/KOC运营效率，降低人工成本，并规避平台风险。",
+    "objectives": "项目目标包括实现内容采集、AI生成、多账号管理和数据看板功能，确保内容合规、高效分发，并优化用户体验。",
+    "key_points": "重点关注事项包括内容采集与爆文结合、千人千面内容生成、多账号分发与风险管控，以及与B端业务达成一致。",
+    "progress": [
+      {
+        "id": 5,
+        "project_id": "KOS",
+        "phase": "整体",
+        "status": "in_progress",
+        "percent": 50,
+        "detail": "项目正在进行中，部分功能已实现，部分功能正在开发中。",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 6,
+        "project_id": "KOS",
+        "phase": "需求",
+        "status": "in_progress",
+        "percent": 70,
+        "detail": "需求分析已完成大部分，部分细节正在调整中。",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 7,
+        "project_id": "KOS",
+        "phase": "开发",
+        "status": "in_progress",
+        "percent": 60,
+        "detail": "开发工作正在进行中，部分模块已开发完成。",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 8,
+        "project_id": "KOS",
+        "phase": "测试",
+        "status": "not_started",
+        "percent": 0,
+        "detail": "测试阶段尚未开始。",
+        "updated_at": "2026-08-10 16:47:44"
+      }
+    ],
+    "action_items": [
+      {
+        "id": 20,
+        "project_id": "KOS",
+        "title": "完成需求分析",
+        "detail": "AI从群消息提取",
+        "owner": "user_2615e0",
+        "due": "2026-08-10",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 21,
+        "project_id": "KOS",
+        "title": "完成开发工作",
+        "detail": "AI从群消息提取",
+        "owner": "user_cac35d",
+        "due": "2026-09-01",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 22,
+        "project_id": "KOS",
+        "title": "完成测试工作",
+        "detail": "AI从群消息提取",
+        "owner": "user_f77e66",
+        "due": "2026-09-15",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      }
+    ],
+    "risks": [
+      {
+        "id": 6,
+        "project_id": "KOS",
+        "title": "客户需求变更",
+        "detail": "客户需求可能随时变更，需要灵活调整项目计划。",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 7,
+        "project_id": "KOS",
+        "title": "技术难题",
+        "detail": "AI内容生成和风险管控等技术难题可能影响项目进度。",
+        "level": "high",
+        "owner": "",
+        "status": "open",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      }
+    ],
+    "roles": [
+      {
+        "id": 4,
+        "project_id": "KOS",
+        "person": "user_cac35d",
+        "role": "开发",
+        "detail": "负责后台原型、移动端原型和流程图的开发。",
+        "created_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 5,
+        "project_id": "KOS",
+        "person": "user_2615e0",
+        "role": "产品经理",
+        "detail": "负责产品需求分析、功能规划和项目进度管理。",
+        "created_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 6,
+        "project_id": "KOS",
+        "person": "user_7494d9",
+        "role": "业务负责人",
+        "detail": "负责与客户沟通、需求确认和项目推进。",
+        "created_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 7,
+        "project_id": "KOS",
+        "person": "user_1c84a7",
+        "role": "后端开发",
+        "detail": "负责后端功能的开发。",
+        "created_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 8,
+        "project_id": "KOS",
+        "person": "user_f77e66",
+        "role": "测试",
+        "detail": "负责测试工作，确保产品质量。",
+        "created_at": "2026-08-10 16:47:44"
+      }
+    ],
+    "commitments": [
+      {
+        "id": 5,
+        "project_id": "KOS",
+        "from_person": "user_2615e0",
+        "to_person": "全体团队成员",
+        "action": "确保项目按计划推进，及时沟通项目进展。",
+        "detail": "AI从群消息提取",
+        "status": "open",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 6,
+        "project_id": "KOS",
+        "from_person": "user_7494d9",
+        "to_person": "客户",
+        "action": "及时与客户沟通，确保需求理解一致。",
+        "detail": "AI从群消息提取",
+        "status": "open",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      },
+      {
+        "id": 7,
+        "project_id": "KOS",
+        "from_person": "user_cac35d",
+        "to_person": "项目经理",
+        "action": "按时完成开发任务，保证代码质量。",
+        "detail": "AI从群消息提取",
+        "status": "open",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44",
+        "updated_at": "2026-08-10 16:47:44"
+      }
+    ],
+    "timeline": [
+      {
+        "id": 20,
+        "project_id": "KOS",
+        "event": "AI 自动提取项目信息",
+        "detail": "从 156 条群消息 + 4 个文档中提取项目全貌",
+        "source": "ai_extract",
+        "created_at": "2026-08-10 16:47:44"
+      }
+    ]
   }
 }
