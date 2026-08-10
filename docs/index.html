@@ -108,7 +108,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
 
 <div class="top-bar">
   <h1>项目管理看板</h1>
-  <span class="meta">更新于 2026-08-10 18:20 · 5 个项目</span>
+  <span class="meta">更新于 2026-08-10 18:31 · 5 个项目</span>
 </div>
 
 <div class="tabs">
@@ -768,9 +768,18 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
           <span>项目说明</span><span class="arrow">&#9662;</span>
         </div>
         <div class="card-body">
-          <div class="empty-state">暂无</div>
-          
-          
+          <div class="overview-text">千店千图项目旨在通过算法实现门店商品陈列的智能化选品。基于多维度特征（门店基础特征、LBS特征、商圈竞对流量、订单履约、活动力度等），为每个门店生成个性化的商品陈列方案（POG），替代传统人工选品，提升动销率和销售额。项目从POC验证到系统化开发，最终实现全国规模化应用。</div>
+          <div class="sub-label">目标</div><div class="sub-text">1. 算法选品替代人工选品，提升动销率和销售额
+2. 实现千店千面的个性化陈列方案
+3. 覆盖后仓、闪电仓等多业态门店
+4. 最终实现全国规模化应用
+5. 系统化产品交付，支持业务自主操作</div>
+          <div class="sub-label">重点关注</div><div class="sub-text">1. 模型已能在12个大城市单店完全应用，Q4应用门店扩展到40多家
+2. 拓店实验组效果显著：动销率+1.4~2.3PT，Sales+5.6~7.1PT
+3. 冷启动模型策略调优中，聚焦尾部商品排序能力
+4. 全国扩展需要城市精细化结果支持，城市精细分组训练架构已完成
+5. 数据处理采用'先离线文件训练，后北极星表例行化'方式
+6. 9月档期FC与后仓选品已整合给业务，Yumi已确认9月可全国应用</div>
         </div>
       </div>
 
@@ -779,7 +788,27 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
           <span>当前进度</span><span class="arrow">&#9662;</span>
         </div>
         <div class="card-body">
-          <div class="empty-state">暂无</div>
+          
+        <div class="pg-row">
+          <span class="pg-label">整体</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:90%;background:#2b6bff"></div></div><span class="pg-text">90%</span>
+          <span class="pg-detail">验收收尾与性能优化阶段，UAT验收通过，9月全国应用</span>
+        </div>
+        <div class="pg-row">
+          <span class="pg-label">算法模型</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:85%;background:#2b6bff"></div></div><span class="pg-text">85%</span>
+          <span class="pg-detail">模型基本框架稳定，冷启动模型持续调优，城市精细分组训练架构完成</span>
+        </div>
+        <div class="pg-row">
+          <span class="pg-label">系统开发</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:100%;background:#00a870"></div></div><span class="pg-text">100%</span>
+          <span class="pg-detail">前后端开发完成，SIT测试通过率95%</span>
+        </div>
+        <div class="pg-row">
+          <span class="pg-label">测试验收</span>
+          <div class="pg-bar"><div class="pg-fill" style="width:90%;background:#2b6bff"></div></div><span class="pg-text">90%</span>
+          <span class="pg-detail">业务主流程验收通过，UAT数据准确性校验中</span>
+        </div>
         </div>
       </div>
 
@@ -788,14 +817,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
           <span>待办清单</span><span class="arrow">&#9662;</span>
         </div>
         <div class="card-body">
-          
-        <div class="list-item">
-          <div class="li-main">
-            <span class="tag" style="border-color:#909399;color:#909399">待启动</span>
-            <span class="li-title">安排选品结果输出</span>
-            <span class="person">@_user_1</span><span class="due-date">本周四</span>
-          </div>
-        </div>
+          <div class="empty-state">暂无</div>
         </div>
       </div>
 
@@ -813,7 +835,297 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
           <span>项目里程碑</span><span class="arrow">&#9662;</span>
         </div>
         <div class="card-body">
-          <div class="empty-state">暂无里程碑</div>
+          <div class="ms-list"><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-05-01</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">项目启动与POC规划</span>
+            </div>
+            <div class="ms-node-line2">计划6月12日启动千城千面&千店千面POC，目标5月22日前产出POC门店选品结果</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-05-22</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">千店千面首批结果交付</span>
+            </div>
+            <div class="ms-node-line2">北京、阳江、乌鲁木齐、拉萨、大理结果交付，千城千面全国模型输出进度50%</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-06-19</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">北京单城POC结果</span>
+            </div>
+            <div class="ms-node-line2">后仓动销优于人工组，但SKU单产低于人工组，FC动销和单产表现不佳</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-07-17</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">基准档期确立</span>
+            </div>
+            <div class="ms-node-line2">0717档期为未应用算法的基准档期</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-08-14</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">多城POC扩展</span>
+            </div>
+            <div class="ms-node-line2">POC扩展到10个城市，动销增长低于对照组但店均单产提升明显，验证策略方向正确。后续采用多目标优化建模</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-10-16</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">1016-1112档期POC</span>
+            </div>
+            <div class="ms-node-line2">算法组对比人工组：动销增长+1.4pt，sales增长+5.6pt</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-11-13</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">100家后仓POC扩量</span>
+            </div>
+            <div class="ms-node-line2">1113-1210档期增加100家后仓进行POC</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-11-13</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">冷启动模型POC启动</span>
+            </div>
+            <div class="ms-node-line2">启动冷启动模型策略调优POC，聚焦尾部商品排序能力，该档期动销率31%略高于人工30%</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-12-04</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">项目汇报</span>
+            </div>
+            <div class="ms-node-line2">模型已在12个大城市单店完全应用，Q4门店扩展到40多家</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2025-12-11</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">闪电仓POC扩量</span>
+            </div>
+            <div class="ms-node-line2">1211-0107档期增加25家闪电仓进行POC</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-01-08</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">0108档期拓店效果</span>
+            </div>
+            <div class="ms-node-line2">拓店实验组vs对照组：动销率+1.4PT，Sales+7.0PT</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-01-08</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">1211档期拓店效果</span>
+            </div>
+            <div class="ms-node-line2">拓店实验组vs对照组：动销率+2.3PT，Sales+7.1PT</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-02-27</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">扩量至80组闪电仓</span>
+            </div>
+            <div class="ms-node-line2">采用基于气候、等级及商业成熟度的城市分组机制筛选POC店铺</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-03-20</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">需求文档排期</span>
+            </div>
+            <div class="ms-node-line2">预计需求文档下周交付</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-03-24</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">FC选品规则明确</span>
+            </div>
+            <div class="ms-node-line2">业务固定货盘+店铺白名单+算法预测选品</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-04-15</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">需求评审</span>
+            </div>
+            <div class="ms-node-line2">组织千店千图需求评审</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-04-24</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">需求二次评审</span>
+            </div>
+            <div class="ms-node-line2">输出系统技术方案，进度60%</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-04-29</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">需求文档V1.0定稿</span>
+            </div>
+            <div class="ms-node-line2">明确导入货盘时支持商品排序、后仓数据过滤逻辑调整等</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-05-25</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">前端开发完成</span>
+            </div>
+            
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-24</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">后端开发完成</span>
+            </div>
+            
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-25</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">进入联调阶段</span>
+            </div>
+            <div class="ms-node-line2">算法模型调整及训练服务器部署准备同步推进</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-29</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">算法代码改造完成</span>
+            </div>
+            <div class="ms-node-line2">0716档期预测数据就绪</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-13</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">SIT测试完成</span>
+            </div>
+            <div class="ms-node-line2">总进度78%</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-17</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">SIT验收通过</span>
+            </div>
+            <div class="ms-node-line2">通过率95%，0813档期算法预测数据写入北极星</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-23</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">业务UAT启动</span>
+            </div>
+            <div class="ms-node-line2">完成测试报告输出与业务验收前培训</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-30</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">正式发布</span>
+            </div>
+            
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-07</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">业务主流程验收通过</span>
+            </div>
+            <div class="ms-node-line2">UAT数据准确性校验中，预计8月10日完成</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#2b6bff"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-10</span>
+              <span class="ms-node-dot" style="background:#2b6bff"></span>
+              <span class="ms-node-title">9月全国应用确认</span>
+            </div>
+            <div class="ms-node-line2">FC与后仓选品已整合给业务，Yumi确认9月档期可全国应用</div>
+          </div>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-10</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">性能优化完成</span>
+            </div>
+            <div class="ms-node-line2">原导入千级商品需数小时的问题已解决</div>
+          </div>
+        </div></div>
         </div>
       </div>
 
@@ -839,8 +1151,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
         </div>
         <div class="card-body">
           <div class="tl-row">
-          <span class="tl-time">2026-08-10 18:01</span>
-          <span class="tl-event">AI自动采集</span>
+          <span class="tl-time">2026-08-10 18:31</span>
+          <span class="tl-event">手动导入</span>
         </div>
         </div>
       </div>
