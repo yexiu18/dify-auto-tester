@@ -17,6 +17,19 @@
     ],
     "action_items": [
       {
+        "id": 47,
+        "project_id": "ecom",
+        "title": "开发代码以实现备货量测算公式",
+        "detail": "AI提取(2026-08-10)",
+        "owner": "_user_1",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找楚君确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:40",
+        "updated_at": "2026-08-10 18:02:40"
+      },
+      {
         "id": 23,
         "project_id": "ecom",
         "title": "开发新口径的增量&成本代码",
@@ -344,6 +357,22 @@
     "commitments": [],
     "timeline": [
       {
+        "id": 26,
+        "project_id": "ecom",
+        "event": "进度更新: 模型",
+        "detail": "讨论了分货上限和备货量测算公式的问题，决定先不考虑分货上限，使用真实备货量公式Max（预测销量，陈列保底量）进行开发",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:40"
+      },
+      {
+        "id": 27,
+        "project_id": "ecom",
+        "event": "AI自动采集",
+        "detail": "提取 2 条（待办1/风险0/承诺0/进度1）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:40"
+      },
+      {
         "id": 21,
         "project_id": "ecom",
         "event": "AI历史归纳",
@@ -462,6 +491,19 @@
     "progress": [],
     "action_items": [
       {
+        "id": 43,
+        "project_id": "LBS",
+        "title": "截止昨天数据，以及一阶POC测试的门店打标",
+        "detail": "AI提取(2026-08-10)",
+        "owner": "_user_1",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找@_user_1确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:01:50",
+        "updated_at": "2026-08-10 18:01:50"
+      },
+      {
         "id": 19,
         "project_id": "LBS",
         "title": "下周周会 review 投放3天数据+接下来节奏讨论",
@@ -558,6 +600,14 @@
     "commitments": [],
     "timeline": [
       {
+        "id": 22,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:01:50"
+      },
+      {
         "id": 19,
         "project_id": "LBS",
         "event": "AI自动采集",
@@ -606,11 +656,34 @@
     "objectives": "",
     "key_points": "",
     "progress": [],
-    "action_items": [],
+    "action_items": [
+      {
+        "id": 44,
+        "project_id": "千店千图",
+        "title": "安排选品结果输出",
+        "detail": "AI提取(2026-08-10)",
+        "owner": "_user_1",
+        "due": "本周四",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:01:57",
+        "updated_at": "2026-08-10 18:01:57"
+      }
+    ],
     "risks": [],
     "roles": [],
     "commitments": [],
-    "timeline": [],
+    "timeline": [
+      {
+        "id": 23,
+        "project_id": "千店千图",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:01:57"
+      }
+    ],
     "milestones": []
   },
   "AIPOG": {
@@ -619,11 +692,47 @@
     "objectives": "",
     "key_points": "",
     "progress": [],
-    "action_items": [],
-    "risks": [],
+    "action_items": [
+      {
+        "id": 45,
+        "project_id": "AIPOG",
+        "title": "调查系统性能下降原因",
+        "detail": "AI提取(2026-08-10)",
+        "owner": "user_03ef01",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找技术团队确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:04",
+        "updated_at": "2026-08-10 18:02:04"
+      }
+    ],
+    "risks": [
+      {
+        "id": 11,
+        "project_id": "AIPOG",
+        "title": "系统性能持续下降",
+        "detail": "可能存在质量隐患，影响用户体验",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:04",
+        "updated_at": "2026-08-10 18:02:04"
+      }
+    ],
     "roles": [],
     "commitments": [],
-    "timeline": [],
+    "timeline": [
+      {
+        "id": 24,
+        "project_id": "AIPOG",
+        "event": "AI自动采集",
+        "detail": "提取 2 条（待办1/风险1/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:04"
+      }
+    ],
     "milestones": []
   },
   "KOS": {
@@ -670,6 +779,19 @@
       }
     ],
     "action_items": [
+      {
+        "id": 46,
+        "project_id": "KOS",
+        "title": "对产品上周五沟通需要调整的点的调整效果进行确认",
+        "detail": "AI提取(2026-08-10)",
+        "owner": "_user_1",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:11",
+        "updated_at": "2026-08-10 18:02:11"
+      },
       {
         "id": 20,
         "project_id": "KOS",
@@ -817,6 +939,14 @@
       }
     ],
     "timeline": [
+      {
+        "id": 25,
+        "project_id": "KOS",
+        "event": "AI自动采集",
+        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-10 18:02:11"
+      },
       {
         "id": 20,
         "project_id": "KOS",
