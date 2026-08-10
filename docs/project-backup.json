@@ -746,7 +746,86 @@
         "updated_at": "2026-08-10 18:31:08"
       }
     ],
-    "action_items": [],
+    "action_items": [
+      {
+        "id": 48,
+        "project_id": "千店千图",
+        "title": "UAT数据准确性校验收尾",
+        "detail": "预计8月10日完成",
+        "owner": "",
+        "due": "",
+        "status": "in_progress",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-10 18:33:12",
+        "updated_at": "2026-08-10 18:33:12"
+      },
+      {
+        "id": 50,
+        "project_id": "千店千图",
+        "title": "冷启动模型策略调优",
+        "detail": "持续优化尾部商品排序能力",
+        "owner": "",
+        "due": "",
+        "status": "in_progress",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-10 18:33:12",
+        "updated_at": "2026-08-10 18:33:12"
+      },
+      {
+        "id": 53,
+        "project_id": "千店千图",
+        "title": "FC与后仓选品整合",
+        "detail": "已整合给业务",
+        "owner": "Yumi",
+        "due": "",
+        "status": "in_progress",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-10 18:33:12",
+        "updated_at": "2026-08-10 18:33:12"
+      },
+      {
+        "id": 49,
+        "project_id": "千店千图",
+        "title": "9月档期全国应用落地",
+        "detail": "已确认9月可全国应用",
+        "owner": "Yumi",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-10 18:33:12",
+        "updated_at": "2026-08-10 18:33:12"
+      },
+      {
+        "id": 51,
+        "project_id": "千店千图",
+        "title": "动态特征优化",
+        "detail": "推进全国扩展所需特征补充",
+        "owner": "",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-10 18:33:12",
+        "updated_at": "2026-08-10 18:33:12"
+      },
+      {
+        "id": 52,
+        "project_id": "千店千图",
+        "title": "全国扩展方案研究",
+        "detail": "需要城市精细化结果支持",
+        "owner": "",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "manual",
+        "created_at": "2026-08-10 18:33:12",
+        "updated_at": "2026-08-10 18:33:12"
+      }
+    ],
     "risks": [],
     "roles": [],
     "commitments": [],
