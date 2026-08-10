@@ -485,170 +485,223 @@
   },
   "LBS": {
     "project": "LBS",
-    "overview": "",
-    "objectives": "",
-    "key_points": "",
-    "progress": [],
-    "action_items": [
+    "overview": "LBS项目服务美团投放部门，目标是将人工投放转化为算法投放，先提升美团平台曝光量和用户点击率，最终实现ROI提升，覆盖选店、出价、选品全链路精细化投放。基于LBS地理位置算法与用户消费偏好标签，实现美团投放的智能选品、动态出价与千店千面投放，最大化投放ROI。",
+    "objectives": "1. 先提升美团平台曝光量和用户点击率\n2. 最终实现ROI提升\n3. 覆盖选店、出价、选品全链路精细化投放\n4. 激活70%普通或中下游门店的曝光和点击\n5. Q3超越人工效果，Q4围绕ROI指标优化",
+    "key_points": "1. 数据处理采用\"先离线文件训练，后北极星表例行化\"的方式\n2. 投放以门店投放为主（占80%预算）\n3. 采用最小需求迭代、小版本POC的推进策略\n4. 商圈竞对流量数据：历史数据立即提供，例行更新按周更",
+    "progress": [
       {
-        "id": 43,
+        "id": 10,
         "project_id": "LBS",
-        "title": "截止昨天数据，以及一阶POC测试的门店打标",
-        "detail": "AI提取(2026-08-10)",
-        "owner": "_user_1",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "需找@_user_1确认",
-        "source": "ai_sweep",
-        "created_at": "2026-08-10 18:01:50",
-        "updated_at": "2026-08-10 18:01:50"
+        "phase": "整体",
+        "status": "in_progress",
+        "percent": 55,
+        "detail": "出价方案落地阶段，已明确历史出价字段与CPC规则",
+        "updated_at": "2026-08-10 18:20:40"
       },
       {
-        "id": 19,
+        "id": 11,
         "project_id": "LBS",
-        "title": "下周周会 review 投放3天数据+接下来节奏讨论",
-        "detail": "AI提取(2026-08-07)",
-        "owner": "_user_1",
-        "due": "下周一4-5点",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:54",
-        "updated_at": "2026-08-09 17:38:54"
+        "phase": "数据准备",
+        "status": "in_progress",
+        "percent": 80,
+        "detail": "WDC和北极星数据表已接入，商圈竞对流量数据待补全",
+        "updated_at": "2026-08-10 18:20:40"
       },
       {
-        "id": 16,
+        "id": 12,
         "project_id": "LBS",
-        "title": "下周周会",
-        "detail": "AI提取(2026-08-07)",
-        "owner": "_user_1, _user_2, _user_3, _user_4",
-        "due": "下周一4-5点",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:41",
-        "updated_at": "2026-08-09 15:18:41"
+        "phase": "模型开发",
+        "status": "in_progress",
+        "percent": 50,
+        "detail": "MMOE+规则出价双轨模型开发中",
+        "updated_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 13,
+        "project_id": "LBS",
+        "phase": "投放测试",
+        "status": "in_progress",
+        "percent": 30,
+        "detail": "已完成第一版投放，持续优化出价策略",
+        "updated_at": "2026-08-10 18:20:40"
+      }
+    ],
+    "action_items": [],
+    "risks": [],
+    "roles": [
+      {
+        "id": 12,
+        "project_id": "LBS",
+        "person": "邵琦",
+        "role": "数据/算法",
+        "detail": "",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 13,
+        "project_id": "LBS",
+        "person": "Alex",
+        "role": "业务/数据",
+        "detail": "",
+        "created_at": "2026-08-10 18:20:40"
       },
       {
         "id": 14,
         "project_id": "LBS",
-        "title": "审核文件 bid_final_9grid.xlsx",
-        "detail": "AI提取(2026-08-06)",
-        "owner": "_user_1, _user_2, _user_3",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "需找邵琦确认",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:21",
-        "updated_at": "2026-08-09 15:18:21"
-      },
-      {
-        "id": 8,
-        "project_id": "LBS",
-        "title": "调整转化不均衡统计结果输出",
-        "detail": "AI提取(2026-08-04)",
-        "owner": "user_f11752",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:50",
-        "updated_at": "2026-08-09 15:17:50"
-      },
-      {
-        "id": 9,
-        "project_id": "LBS",
-        "title": "完成POC",
-        "detail": "AI提取(2026-08-04)",
-        "owner": "",
-        "due": "这周",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:50",
-        "updated_at": "2026-08-09 15:17:50"
-      },
-      {
-        "id": 3,
-        "project_id": "LBS",
-        "title": "门店出价结果沟通",
-        "detail": "AI提取(2026-08-03)",
-        "owner": "",
-        "due": "下午四点",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:29",
-        "updated_at": "2026-08-09 15:17:29"
+        "person": "Summer",
+        "role": "业务",
+        "detail": "",
+        "created_at": "2026-08-10 18:20:40"
       }
     ],
-    "risks": [
-      {
-        "id": 3,
-        "project_id": "LBS",
-        "title": "强化规则推出时间不确定",
-        "detail": "强化规则出来之前业务要做POC的话，转化不均衡下钻拆分能有出价调整吗？",
-        "level": "medium",
-        "owner": "",
-        "status": "open",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:50",
-        "updated_at": "2026-08-09 15:17:50"
-      }
-    ],
-    "roles": [],
     "commitments": [],
     "timeline": [
       {
-        "id": 22,
+        "id": 28,
         "project_id": "LBS",
-        "event": "AI自动采集",
-        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-10 18:01:50"
-      },
-      {
-        "id": 19,
-        "project_id": "LBS",
-        "event": "AI自动采集",
-        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 17:38:54"
-      },
-      {
-        "id": 15,
-        "project_id": "LBS",
-        "event": "AI自动采集",
-        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:41"
-      },
-      {
-        "id": 10,
-        "project_id": "LBS",
-        "event": "AI自动采集",
-        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:18:21"
-      },
-      {
-        "id": 5,
-        "project_id": "LBS",
-        "event": "AI自动采集",
-        "detail": "提取 3 条（待办2/风险1/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:50"
-      },
-      {
-        "id": 2,
-        "project_id": "LBS",
-        "event": "AI自动采集",
-        "detail": "提取 1 条（待办1/风险0/承诺0/进度0）",
-        "source": "ai_sweep",
-        "created_at": "2026-08-09 15:17:29"
+        "event": "手动导入",
+        "detail": "LBS项目全量信息导入（背景+目标+进度+里程碑）",
+        "source": "manual",
+        "created_at": "2026-08-10 18:20:40"
       }
     ],
-    "milestones": []
+    "milestones": [
+      {
+        "id": 21,
+        "project_id": "LBS",
+        "title": "项目正式启动",
+        "date": "2026-04-01",
+        "description": "完成WDC和北极星数据表接入，输出第一版特征",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 22,
+        "project_id": "LBS",
+        "title": "第一版数据结果输出",
+        "date": "2026-04-29",
+        "description": "输出第一版数据结果，完成初步分析",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 23,
+        "project_id": "LBS",
+        "title": "完成第一版投放",
+        "date": "2026-05-15",
+        "description": "基于初步数据完成第一版投放测试",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 24,
+        "project_id": "LBS",
+        "title": "技术方案讨论",
+        "date": "2026-05-26",
+        "description": "明确数据获取与处理方案，确定特征补充范围",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 25,
+        "project_id": "LBS",
+        "title": "第一阶段启动",
+        "date": "2026-06-01",
+        "description": "完成业务需求深度对齐、数据源梳理和口径核对，输出商圈流量和销售占比分析文档",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 26,
+        "project_id": "LBS",
+        "title": "调整项目目标",
+        "date": "2026-06-03",
+        "description": "从ROI转向保曝光和点击，激活70%普通或中下游门店，6月输出多模态模型版本",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 27,
+        "project_id": "LBS",
+        "title": "数据更新与策略确定",
+        "date": "2026-06-08",
+        "description": "加入1-5月门店销售额、开关店数据，确定按最小需求迭代、小版本POC推进策略",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 28,
+        "project_id": "LBS",
+        "title": "特征宽表完成",
+        "date": "2026-06-22",
+        "description": "完成特征宽表整理与模型搭建准备，计划约业务确认特征，整体开发周期约2个月",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 29,
+        "project_id": "LBS",
+        "title": "特征重要性梳理完成",
+        "date": "2026-07-03",
+        "description": "计划下周一与业务确认细节后启动基线模型开发",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 30,
+        "project_id": "LBS",
+        "title": "基线模型启动",
+        "date": "2026-07-06",
+        "description": "完成特征开发与特征重要性梳理，与业务对齐后启动基线模型开发",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 31,
+        "project_id": "LBS",
+        "title": "开发排期确认",
+        "date": "2026-07-13",
+        "description": "7月中提供上旬数据，7月24日输出MMOE数据，7月31日完成MMOE+规则出价小流量",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 32,
+        "project_id": "LBS",
+        "title": "MVP排期对齐",
+        "date": "2026-07-20",
+        "description": "与业务对齐MVP版本短周期排期，进入模型开发阶段",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 33,
+        "project_id": "LBS",
+        "title": "MMOE数据输出",
+        "date": "2026-07-24",
+        "description": "完成MMOE数据输出，包含各门店投放效率数据",
+        "status": "done",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 34,
+        "project_id": "LBS",
+        "title": "出价方案落地",
+        "date": "2026-08-01",
+        "description": "启动自研LBS门店出价双轨模型，投放以门店投放为主（占80%预算）",
+        "status": "in_progress",
+        "created_at": "2026-08-10 18:20:40"
+      },
+      {
+        "id": 35,
+        "project_id": "LBS",
+        "title": "出价调整输出",
+        "date": "2026-08-10",
+        "description": "完成最新出价调整，按业务要求输出，说明文档待整理，计划下周与业务方讨论",
+        "status": "in_progress",
+        "created_at": "2026-08-10 18:20:40"
+      }
+    ]
   },
   "千店千图": {
     "project": "千店千图",
