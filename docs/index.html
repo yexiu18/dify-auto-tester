@@ -75,19 +75,16 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
 .commit-arrow { color:var(--text-3); font-size:14px; }
 .commit-text { font-size:13px; color:var(--text-2); margin-left:4px; }
 
-/* Milestone Timeline */
-.ms-timeline { padding-left:4px; }
-.ms-item { display:flex; gap:0; position:relative; }
-.ms-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
-.ms-dot { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; flex-shrink:0; z-index:1; }
-.ms-line { width:2px; flex:1; min-height:20px; border-left:2px solid; border-color:inherit; }
-.ms-line-show { min-height:28px; margin-top:-2px; }
-.ms-card { flex:1; margin-left:16px; margin-bottom:20px; padding:12px 16px; background:#f5f7fa; border-radius:6px; border:1px solid var(--border); }
-.ms-card-header { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-.ms-card-date { font-size:13px; font-weight:500; color:var(--text-2); }
-.ms-status-tag { font-size:11px; padding:1px 6px; border-radius:3px; }
-.ms-card-title { font-size:15px; font-weight:600; color:var(--text); margin-bottom:2px; }
-.ms-card-desc { font-size:13px; color:var(--text-3); line-height:1.7; }
+/* Milestone - 极简两行式 */
+.ms-list { display:flex; flex-direction:column; gap:0; }
+.ms-node { display:flex; gap:0; }
+.ms-node-bar { width:3px; flex-shrink:0; border-radius:2px; }
+.ms-node-body { flex:1; padding:10px 0 10px 16px; }
+.ms-node-line1 { display:flex; align-items:center; gap:8px; }
+.ms-node-date { font-size:13px; color:var(--text-3); white-space:nowrap; width:84px; }
+.ms-node-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.ms-node-title { font-size:14px; font-weight:500; color:var(--text); }
+.ms-node-line2 { font-size:13px; color:var(--text-3); margin-top:2px; padding-left:92px; line-height:1.6; }
 
 /* Timeline */
 .tl-row { display:flex; gap:12px; padding:4px 0; border-bottom:1px solid #f0f2f5; }
@@ -111,7 +108,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
 
 <div class="top-bar">
   <h1>项目管理看板</h1>
-  <span class="meta">更新于 2026-08-10 17:52 · 5 个项目</span>
+  <span class="meta">更新于 2026-08-10 17:53 · 5 个项目</span>
 </div>
 
 <div class="tabs">
@@ -337,159 +334,115 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
           <span>项目里程碑</span><span class="arrow">&#9662;</span>
         </div>
         <div class="card-body">
-          <div class="ms-timeline">
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-04-01</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+          <div class="ms-list"><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-04-01</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">项目启动</span>
             </div>
-            <div class="ms-card-title">项目启动</div>
-            <div class="ms-card-desc">ECOM销量预测项目正式启动，核心目标为融合用户需求、商品特征、地域适配性、营销节庆、库存等多维度因子，对门店商品销量进行精准预测，支撑大促备货、新品冷启动、新店冷启动等场景的库存与货盘优化</div>
+            <div class="ms-node-line2">ECOM销量预测项目正式启动，核心目标为融合用户需求、商品特征、地域适配性、营销节庆、库存等多维度因子，对门店商品销量进行精准预测，支撑大促备货、新品冷启动、新店冷启动等场景的库存与货盘优化</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-06-01</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-01</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">前期特征梳理</span>
             </div>
-            <div class="ms-card-title">前期特征梳理</div>
-            <div class="ms-card-desc">江炜烨完成特征梳理，计划6月底输出MVP版本并开展POC验证</div>
+            <div class="ms-node-line2">江炜烨完成特征梳理，计划6月底输出MVP版本并开展POC验证</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-06-03</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-03</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">模型迭代优化（京东/饿了么单独建模）</span>
             </div>
-            <div class="ms-card-title">模型迭代优化（京东/饿了么单独建模）</div>
-            <div class="ms-card-desc">针对京东、饿了么渠道数据特征单独开发建模，业务方期望6月底输出与实际数据对比的测试结果</div>
+            <div class="ms-node-line2">针对京东、饿了么渠道数据特征单独开发建模，业务方期望6月底输出与实际数据对比的测试结果</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-06-11</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-11</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">多维度模型调整</span>
             </div>
-            <div class="ms-card-title">多维度模型调整</div>
-            <div class="ms-card-desc">取消商品分层筛选、去掉长期缺货/无动销样本剔除规则、调整评估指标、移除归一化操作、优化时间索引与折扣粒度输入方式；明确7月完成算法POC的目标</div>
+            <div class="ms-node-line2">取消商品分层筛选、去掉长期缺货/无动销样本剔除规则、调整评估指标、移除归一化操作、优化时间索引与折扣粒度输入方式；明确7月完成算法POC的目标</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-06-24</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-24</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">第一版模型实验完成</span>
             </div>
-            <div class="ms-card-title">第一版模型实验完成</div>
-            <div class="ms-card-desc">单看WMAPE指标模型与人工持平（60%左右），Bias指标远优于人工</div>
+            <div class="ms-node-line2">单看WMAPE指标模型与人工持平（60%左右），Bias指标远优于人工</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-06-30</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-06-30</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">POC结果输出</span>
             </div>
-            <div class="ms-card-title">POC结果输出</div>
-            <div class="ms-card-desc">完成POC结果输出，明确7月7-8日训练出正向结果后，7月15日-7月26日为POC验证周期</div>
+            <div class="ms-node-line2">完成POC结果输出，明确7月7-8日训练出正向结果后，7月15日-7月26日为POC验证周期</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-07-14</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-14</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">特征清单确认</span>
             </div>
-            <div class="ms-card-title">特征清单确认</div>
-            <div class="ms-card-desc">完成特征清单确认，待江炜烨输出线下实验效果后确认下一步动作</div>
+            <div class="ms-node-line2">完成特征清单确认，待江炜烨输出线下实验效果后确认下一步动作</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-07-16</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-16</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">0716档期POC数据输出</span>
             </div>
-            <div class="ms-card-title">0716档期POC数据输出</div>
-            <div class="ms-card-desc">完成0716档期POC数据输出，与业务方确认结果口径，判断是否可汇报</div>
+            <div class="ms-node-line2">完成0716档期POC数据输出，与业务方确认结果口径，判断是否可汇报</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-07-30</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-07-30</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">POC算法与BI对数</span>
             </div>
-            <div class="ms-card-title">POC算法与BI对数</div>
-            <div class="ms-card-desc">完成0716-0729两周POC的算法与BI对数，确认差异解释，锁定当日分货结果的最晚交付时间</div>
+            <div class="ms-node-line2">完成0716-0729两周POC的算法与BI对数，确认差异解释，锁定当日分货结果的最晚交付时间</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-08-05</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-05</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">V2版本模型优化启动</span>
             </div>
-            <div class="ms-card-title">V2版本模型优化启动</div>
-            <div class="ms-card-desc">核心从追求计算精度向追求业务收益演进，回测范围覆盖2026年1月29日-6月18日的6个档期</div>
+            <div class="ms-node-line2">核心从追求计算精度向追求业务收益演进，回测范围覆盖2026年1月29日-6月18日的6个档期</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line " style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-08-10</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-10</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">V2模型效果验证完成</span>
             </div>
-            <div class="ms-card-title">V2模型效果验证完成</div>
-            <div class="ms-card-desc">WMAPE与老模型持平（0.831），Bias略有上升（0.340），预测商品范围提升；预测偏低区间占比从15.63%降至13.46%，预估超出部分周转周数8周以上占比砍半，整体更贴合业务实际需求</div>
+            <div class="ms-node-line2">WMAPE与老模型持平（0.831），Bias略有上升（0.340），预测商品范围提升；预测偏低区间占比从15.63%降至13.46%，预估超出部分周转周数8周以上占比砍半，整体更贴合业务实际需求</div>
           </div>
         </div></div>
         </div>
@@ -921,75 +874,55 @@ body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaH
           <span>项目里程碑</span><span class="arrow">&#9662;</span>
         </div>
         <div class="card-body">
-          <div class="ms-timeline">
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-08-04</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+          <div class="ms-list"><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-04</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">需求对齐</span>
             </div>
-            <div class="ms-card-title">需求对齐</div>
-            <div class="ms-card-desc">项目需求对齐及排期沟通会议</div>
+            <div class="ms-node-line2">项目需求对齐及排期沟通会议</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-08-05</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-05</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">方案评审</span>
             </div>
-            <div class="ms-card-title">方案评审</div>
-            <div class="ms-card-desc">项目排期及方案评审会议</div>
+            <div class="ms-node-line2">项目排期及方案评审会议</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#00a870">&#10003;</div>
-            <div class="ms-line ms-line-show" style="border-color:#00a870"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-08-07</span>
-              <span class="ms-status-tag" style="background:#00a8701a;color:#00a870">已完成</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#00a870"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-08-07</span>
+              <span class="ms-node-dot" style="background:#00a870"></span>
+              <span class="ms-node-title">Skill部署评估</span>
             </div>
-            <div class="ms-card-title">Skill部署评估</div>
-            <div class="ms-card-desc">生图生文skill部署及成本评估会议</div>
+            <div class="ms-node-line2">生图生文skill部署及成本评估会议</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#2b6bff">&#9679;</div>
-            <div class="ms-line ms-line-show" style="border-color:#2b6bff"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-09-01</span>
-              <span class="ms-status-tag" style="background:#2b6bff1a;color:#2b6bff">进行中</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#2b6bff"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-09-01</span>
+              <span class="ms-node-dot" style="background:#2b6bff"></span>
+              <span class="ms-node-title">开发完成</span>
             </div>
-            <div class="ms-card-title">开发完成</div>
-            <div class="ms-card-desc">全链路开发完成</div>
+            <div class="ms-node-line2">全链路开发完成</div>
           </div>
-        </div>
-        <div class="ms-item">
-          <div class="ms-left">
-            <div class="ms-dot" style="background:#c8cacc">&#9675;</div>
-            <div class="ms-line " style="border-color:#c8cacc"></div>
-          </div>
-          <div class="ms-card">
-            <div class="ms-card-header">
-              <span class="ms-card-date">2026-09-15</span>
-              <span class="ms-status-tag" style="background:#c8cacc1a;color:#c8cacc">计划中</span>
+        </div><div class="ms-node">
+          <div class="ms-node-bar" style="background:#c8cacc"></div>
+          <div class="ms-node-body">
+            <div class="ms-node-line1">
+              <span class="ms-node-date">2026-09-15</span>
+              <span class="ms-node-dot" style="background:#c8cacc"></span>
+              <span class="ms-node-title">测试上线</span>
             </div>
-            <div class="ms-card-title">测试上线</div>
-            <div class="ms-card-desc">测试通过并上线</div>
+            <div class="ms-node-line2">测试通过并上线</div>
           </div>
         </div></div>
         </div>
