@@ -95,7 +95,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
 
 <div class="header">
   <h1>📊 项目管理 Backup</h1>
-  <div class="subtitle">最后更新：2026-08-10 17:03 · 共 5 个项目</div>
+  <div class="subtitle">最后更新：2026-08-10 17:36 · 共 5 个项目</div>
 </div>
 
 <div class="tabs">
@@ -113,9 +113,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
       <div class="section">
         <h2 class="section-title">📋 项目说明</h2>
         <div class="section-body">
-          <div class="overview">屈臣氏电商销量预测项目。<br><br>**背景**：通过算法预测屈臣氏门店的电商销量，指导备货和档期策略。<br>**目标**：实现 X个门店 Y个品类的高准确率销量预测，MAPE ≤ Z%。</div>
-          <div class="objectives"><h3>目标</h3>- [ ] 完成历史数据清洗和特征工程<br>- [ ] 训练并调优预测模型<br>- [ ] 输出分档期预测结果<br>- [ ] 数据应用明细交付业务侧</div>
-          <div class="key-points"><h3>重点关注</h3>- 特别关注：到家预测拆分的准确性<br>- 特别关注：缺货率指标的对齐<br>- 数据口径：新统计口径（2026-07-16 起）</div>
+          <div class="overview">项目旨在开发代码以计算真实备货量，并估算成本，同时考虑分货上限和库存调整等因素。</div>
+          <div class="objectives"><h3>目标</h3>["开发代码以计算真实备货量。", "估算库存成本，并考虑分货上限。", "处理库存调整、库存转移、库存退货等情况。"]</div>
+          <div class="key-points"><h3>重点关注</h3>["真实备货量的计算公式。", "分货上限和库存调整对成本的影响。", "开发新口径的增量&成本代码。"]</div>
         </div>
       </div>
 
@@ -125,24 +125,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
         <div class="section-body">
           
         <div class="progress-row">
-            <span class="progress-label">整体</span>
+            <span class="progress-label">代码开发</span>
             <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#3b82f6"></div></div><span class="progress-text">60%</span>
-            <span class="progress-detail">档期预测已产出，持续优化中</span>
-        </div>
-        <div class="progress-row">
-            <span class="progress-label">数据</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#22c55e"></div></div><span class="progress-text">100%</span>
-            <span class="progress-detail">历史数据清洗完成</span>
-        </div>
-        <div class="progress-row">
-            <span class="progress-label">模型</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:70%;background:#3b82f6"></div></div><span class="progress-text">70%</span>
-            <span class="progress-detail">V2版本迭代中</span>
-        </div>
-        <div class="progress-row">
-            <span class="progress-label">交付</span>
-            <div class="progress-bar"><div class="progress-fill" style="width:40%;background:#3b82f6"></div></div><span class="progress-text">40%</span>
-            <span class="progress-detail">数据应用明细已发业务</span>
+            <span class="progress-detail">正在进行代码开发，预计需要一天时间。</span>
         </div>
         </div>
       </div>
@@ -154,120 +139,183 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
           
         <div class="item-row">
             <div class="item-main">
-                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 进行中</span>
-                <span class="item-title">V2预测方案输出</span>
-                <span class="owner">@李四</span>
-                <span class="due">📅 本周三</span>
-            </div>
-            <div class='item-detail'>基于新口径</div>
-        </div>
-        <div class="item-row">
-            <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">添加预测准确率分组分布</span>
-                <span class="owner">@user_274f8f</span>
-                <span class="ddl-unknown">⚠️ 需找user_0fbaed确认</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-07)</div>
-        </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">对比分析老版本和新版本Top选取方式及人工结果</span>
-                <span class="owner">@user_274f8f</span>
-                <span class="ddl-unknown">⚠️ 无</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-07)</div>
-        </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">添加预测准确率分组分布</span>
-                <span class="owner">@user_274f8f</span>
+                <span class="item-title">开发新口径的增量&成本代码</span>
+                <span class="owner">@江炜烨</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-07)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">核实lt_date和fcst_lt_before数据</span>
-                <span class="owner">@user_274f8f</span>
+                <span class="item-title">跑新口径数据</span>
+                <span class="owner">@Summer Zhu</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-06)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">查询lt值为0的原因</span>
-                <span class="owner">@user_024434</span>
+                <span class="item-title">核实lt_date</span>
+                <span class="owner">@Summer Zhu</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-06)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">审查无缺货部分</span>
-                <span class="owner">@user_a63075</span>
+                <span class="item-title">核实分货记录</span>
+                <span class="owner">@Summer Zhu</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-06)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">提供增量成本计算方案</span>
-                <span class="owner">@user_274f8f</span>
-                <span class="ddl-unknown">⚠️ 需找Jason确认</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-06)</div>
-        </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">检查店铺分组是否正确</span>
-                <span class="owner">@user_a63075</span>
-                <span class="ddl-unknown">⚠️ 需找炜烨确认</span>
-            </div>
-            <div class='item-detail'>AI提取(2026-08-04)</div>
-        </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">修正抽样人工的遗漏数据</span>
-                <span class="owner">@user_274f8f</span>
+                <span class="item-title">核实安全库存</span>
+                <span class="owner">@Halle Zhang</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-04)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">更新算法版本并提高准确率</span>
-                <span class="owner">@user_0fbaed</span>
+                <span class="item-title">核实门店每个商品分货的上下限</span>
+                <span class="owner">@Halle Zhang</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-04)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">准备好与炜烨之间的自动化工作</span>
-                <span class="owner">@user_024434</span>
+                <span class="item-title">核实库存成本计算逻辑</span>
+                <span class="owner">@Summer Zhu</span>
                 
             </div>
-            <div class='item-detail'>AI提取(2026-08-04)</div>
+            
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
-                <span class="item-title">数据复盘确认</span>
-                <span class="owner">@张三</span>
-                <span class="ddl-unknown">⚠️ 待定</span>
+                <span class="item-title">核实facing要求</span>
+                <span class="owner">@Summer Zhu</span>
+                
             </div>
-            <div class='item-detail'>需找邵琦确认DDL</div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">库存成本计算问题</span>
+                <span class="owner">@江炜烨</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">商品单元囤货成本近似计算方法</span>
+                <span class="owner">@江炜烨</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">业务指标评估</span>
+                <span class="owner">@江炜烨</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">总缺货率、实际缺货率、陈列图缺货率的区别</span>
+                <span class="owner">@江炜烨</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">如何取不受缺货影响的样本</span>
+                <span class="owner">@江炜烨</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">数据量问题讨论</span>
+                <span class="owner">@Daniel Peng</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">门店分组问题讨论</span>
+                <span class="owner">@江炜烨</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">数据复盘文件问题讨论</span>
+                <span class="owner">@Halle Zhang</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">预测准确率文件问题讨论</span>
+                <span class="owner">@Jun Tang</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">新旧口径差异讨论</span>
+                <span class="owner">@Halle Zhang</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">模型评价指标与业务指标关系讨论</span>
+                <span class="owner">@朱雨佳</span>
+                
+            </div>
+            
+        </div>
+        <div class="item-row">
+            <div class="item-main">
+                <span class="badge" style="background:#6b728020;color:#6b7280">⚪ 待启动</span>
+                <span class="item-title">数据准确性问题讨论</span>
+                <span class="owner">@Summer Zhu</span>
+                
+            </div>
+            
         </div>
         </div>
       </div>
@@ -280,38 +328,29 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">数据延迟上报影响预测</span>
-                <span class="owner">@李四</span>
-                <span class="badge resolved">✅ 已解决</span>
+                <span class="item-title">分货算法考虑不周全</span>
+                
+                <span class="badge open">⚠️ 待解决</span>
             </div>
-            
+            <div class='item-detail'>算法没有考虑库存调整、库存转移、库存退货等情况，可能存在错漏。</div>
         </div>
         <div class="item-row">
             <div class="item-main">
                 <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
-                <span class="item-title">个别城市WMAPE预测问题</span>
+                <span class="item-title">库存成本计算逻辑可能存在偏差</span>
                 
                 <span class="badge open">⚠️ 待解决</span>
             </div>
-            <div class='item-detail'>个别城市WMAPE预测效果不佳，可能需要进一步分析</div>
+            <div class='item-detail'>目前库存成本计算逻辑可能存在偏差，需要进一步核实。</div>
         </div>
         <div class="item-row">
             <div class="item-main">
-                <span class="badge" style="background:#22c55e20;color:#22c55e">🟢 低</span>
-                <span class="item-title">邵琦休假影响对齐节奏</span>
-                <span class="owner">@张三</span>
-                <span class="badge open">⚠️ 待解决</span>
-            </div>
-            
-        </div>
-        <div class="item-row">
-            <div class="item-main">
-                <span class="badge" style="background:#ef444420;color:#ef4444">🔴 高</span>
-                <span class="item-title">回测无法看到也预估不出增量和成本</span>
+                <span class="badge" style="background:#f59e0b20;color:#f59e0b">🟡 中</span>
+                <span class="item-title">facing要求理解存在偏差</span>
                 
                 <span class="badge open">⚠️ 待解决</span>
             </div>
-            <div class='item-detail'>感觉不是长久之计</div>
+            <div class='item-detail'>对facing要求的理解可能存在偏差，需要进一步确认。</div>
         </div>
         </div>
       </div>
@@ -320,17 +359,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
       <div class="section">
         <h2 class="section-title">👥 人员角色</h2>
         <div class="section-body"><div class="roles-grid"><div class="role-card">
-            <div class="role-person">张三</div>
-            <div class="role-title">PM</div>
-            <div class='role-detail'>整体推进</div>
+            <div class="role-person">江炜烨</div>
+            <div class="role-title">开发者</div>
+            <div class='role-detail'>负责开发代码以计算真实备货量和估算成本。</div>
         </div><div class="role-card">
-            <div class="role-person">李四</div>
-            <div class="role-title">算法</div>
-            <div class='role-detail'>模型开发</div>
+            <div class="role-person">Halle Zhang(张楚君)</div>
+            <div class="role-title">数据提供者</div>
+            <div class='role-detail'>提供数据和协助开发代码。</div>
         </div><div class="role-card">
-            <div class="role-person">王五</div>
-            <div class="role-title">业务</div>
-            <div class='role-detail'>需求对齐</div>
+            <div class="role-person">Summer Zhu(朱文云)</div>
+            <div class="role-title">业务顾问</div>
+            <div class='role-detail'>提供业务指导和数据解释。</div>
         </div></div></div>
       </div>
 
@@ -338,31 +377,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
       <div class="section">
         <h2 class="section-title">🔗 承诺链</h2>
         <div class="section-body">
-          
-        <div class="commit-row">
-            <span class="commit-person">user_274f8f</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">user_0fbaed</span>
-            <span class="commit-action">询问能否取得相关数据</span>
-        </div>
-        <div class="commit-row">
-            <span class="commit-person">user_274f8f</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">user_0fbaed</span>
-            <span class="commit-action">等待Jason提供方案</span>
-        </div>
-        <div class="commit-row">
-            <span class="commit-person">李四</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">张三</span>
-            <span class="commit-action">周三出V2方案</span>
-        </div>
-        <div class="commit-row">
-            <span class="commit-person">张三</span>
-            <span class="commit-arrow">→ 🔗</span>
-            <span class="commit-person">王五</span>
-            <span class="commit-action">方案确认后同步</span>
-        </div>
+          <p class="empty">暂无</p>
         </div>
       </div>
 
@@ -371,45 +386,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Ping
         <h2 class="section-title">📅 更新时间线</h2>
         <div class="section-body">
           <div class="timeline-row">
-            <span class="timeline-time">2026-08-09 17:38</span>
-            <span class="timeline-event">进度更新: 模型</span>
-            <span class='timeline-detail'>新版本模型对目前定义的Top400+200+50都可以应用到，并可以给出预测值</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 17:38</span>
-            <span class="timeline-event">进度更新: 模型</span>
-            <span class='timeline-detail'>新版本的Top都给预测值了，从过去5档期变成了过去4档期</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 17:38</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 4 条（待办2/风险0/承诺0/进度2）</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">进度更新: 模型</span>
-            <span class='timeline-detail'>新版本模型可以应用到目前定义的Top400+200+50，并且能够给出预测值。</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">进度更新: 模型</span>
-            <span class='timeline-detail'>老版本模型预测效果受限，无法预测Top品里的一部分，5%左右预测不了，新版本有所改进。</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">进度更新: 模型</span>
-            <span class='timeline-detail'>老版本和新版本的Top选取方式从过去5档期变为过去4档期。</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">AI自动采集</span>
-            <span class='timeline-detail'>提取 5 条（待办1/风险1/承诺0/进度3）</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">进度更新: 数据应用</span>
-            <span class='timeline-detail'>核实lt_date和fcst_lt_before数据</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">进度更新: 数据应用</span>
-            <span class='timeline-detail'>查询lt值为0的原因</span>
-        </div><div class="timeline-row">
-            <span class="timeline-time">2026-08-09 15:18</span>
-            <span class="timeline-event">进度更新: 模型</span>
-            <span class='timeline-detail'>审查无缺货部分</span>
+            <span class="timeline-time">2026-08-10 17:36</span>
+            <span class="timeline-event">AI历史归纳</span>
+            <span class='timeline-detail'>从8月群消息中提取项目信息（266条消息）</span>
         </div>
         </div>
       </div>
