@@ -748,6 +748,19 @@
     ],
     "action_items": [
       {
+        "id": 54,
+        "project_id": "千店千图",
+        "title": "0908档期FC和后仓选品输出",
+        "detail": "Yumi已更新在线文档数据，本次无业务逻辑变更，需安排输出选品结果",
+        "owner": "Yumi(张瑜)",
+        "due": "本周四",
+        "status": "in_progress",
+        "ddl_unknown": "",
+        "source": "群消息提取",
+        "created_at": "2026-08-11 02:50:01",
+        "updated_at": "2026-08-11 02:50:01"
+      },
+      {
         "id": 48,
         "project_id": "千店千图",
         "title": "UAT数据准确性校验收尾",
@@ -778,7 +791,7 @@
         "project_id": "千店千图",
         "title": "FC与后仓选品整合",
         "detail": "已整合给业务",
-        "owner": "Yumi",
+        "owner": "Yumi(张瑜)",
         "due": "",
         "status": "in_progress",
         "ddl_unknown": "",
@@ -791,7 +804,7 @@
         "project_id": "千店千图",
         "title": "9月档期全国应用落地",
         "detail": "已确认9月可全国应用",
-        "owner": "Yumi",
+        "owner": "Yumi(张瑜)",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
@@ -827,7 +840,16 @@
       }
     ],
     "risks": [],
-    "roles": [],
+    "roles": [
+      {
+        "id": 15,
+        "project_id": "千店千图",
+        "person": "Yumi(张瑜)",
+        "role": "产品负责人（屈臣氏方）",
+        "detail": "",
+        "created_at": "2026-08-11 02:50:01"
+      }
+    ],
     "commitments": [],
     "timeline": [
       {
