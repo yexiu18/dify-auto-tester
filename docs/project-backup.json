@@ -761,32 +761,6 @@
         "updated_at": "2026-08-11 02:50:01"
       },
       {
-        "id": 48,
-        "project_id": "千店千图",
-        "title": "UAT数据准确性校验收尾",
-        "detail": "预计8月10日完成",
-        "owner": "",
-        "due": "",
-        "status": "in_progress",
-        "ddl_unknown": "",
-        "source": "manual",
-        "created_at": "2026-08-10 18:33:12",
-        "updated_at": "2026-08-10 18:33:12"
-      },
-      {
-        "id": 50,
-        "project_id": "千店千图",
-        "title": "冷启动模型策略调优",
-        "detail": "持续优化尾部商品排序能力",
-        "owner": "",
-        "due": "",
-        "status": "in_progress",
-        "ddl_unknown": "",
-        "source": "manual",
-        "created_at": "2026-08-10 18:33:12",
-        "updated_at": "2026-08-10 18:33:12"
-      },
-      {
         "id": 53,
         "project_id": "千店千图",
         "title": "FC与后仓选品整合",
