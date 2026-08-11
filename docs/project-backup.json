@@ -17,6 +17,58 @@
     ],
     "action_items": [
       {
+        "id": 56,
+        "project_id": "ecom",
+        "title": "确认计算逻辑",
+        "detail": "AI提取(2026-08-11)",
+        "owner": "_user_1",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找Summer Zhu确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:06",
+        "updated_at": "2026-08-11 18:01:06"
+      },
+      {
+        "id": 57,
+        "project_id": "ecom",
+        "title": "思考当前测算方式的合理性",
+        "detail": "AI提取(2026-08-11)",
+        "owner": "_user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:06",
+        "updated_at": "2026-08-11 18:01:06"
+      },
+      {
+        "id": 58,
+        "project_id": "ecom",
+        "title": "重新计算存在缺货商品的sales_part",
+        "detail": "AI提取(2026-08-11)",
+        "owner": "_user_274f8f",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:06",
+        "updated_at": "2026-08-11 18:01:06"
+      },
+      {
+        "id": 55,
+        "project_id": "ecom",
+        "title": "规则内容补充：结合 Halle Zhang 确认的模型、人工均减去 SCI 的业务增量计算规则，补充完善相关内容后发至群内，供 Summer Zhu 查阅反馈歧义点 @江炜烨 计算逻辑研讨：与江炜烨、Summer Zhu(朱文云)共同研讨模型积压量的计算逻辑，对比当前版本与此前提出的逻辑的适配性 @江炜烨 会议中的金句时刻",
+        "detail": "会议纪要(2026-08-11): 智能纪要：增量&库存成本评估指标对齐会 2026年8月11日",
+        "owner": "江炜烨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "meeting_minutes",
+        "created_at": "2026-08-11 18:01:00",
+        "updated_at": "2026-08-11 18:01:00"
+      },
+      {
         "id": 47,
         "project_id": "ecom",
         "title": "开发代码以实现备货量测算公式",
@@ -357,6 +409,22 @@
     "commitments": [],
     "timeline": [
       {
+        "id": 31,
+        "project_id": "ecom",
+        "event": "AI自动采集",
+        "detail": "提取 3 条（待办3/风险0/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:06"
+      },
+      {
+        "id": 30,
+        "project_id": "ecom",
+        "event": "📋 会议纪要: 智能纪要：增量&库存成本评估指标对齐会 2026年8月11日",
+        "detail": "本次会议围绕增量&库存成本评估指标的统计规则、对比逻辑展开对齐，核心内容如下：\n评估基础规则对齐\n\n\n样本与口径约定\n统一评估样本：明确选取同一批北京门店作为评估对象，避免算法、人工分不同门店统计导致的对比基准偏差。\n全渠道预估构成：全渠道预估结果由对应主体的到家渠道预估量，加上 SCI 统计的离线等其他渠道预估量求和得出。\n\nmeetgraph/7672590387799182323/200df",
+        "source": "meeting_minutes",
+        "created_at": "2026-08-11 18:01:00"
+      },
+      {
         "id": 26,
         "project_id": "ecom",
         "event": "进度更新: 模型",
@@ -526,8 +594,35 @@
         "updated_at": "2026-08-10 18:20:40"
       }
     ],
-    "action_items": [],
-    "risks": [],
+    "action_items": [
+      {
+        "id": 59,
+        "project_id": "LBS",
+        "title": "调整出价模型，考虑历史出价序列和时间衰减",
+        "detail": "AI提取(2026-08-11)",
+        "owner": "_user_1",
+        "due": "明天上午",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:18",
+        "updated_at": "2026-08-11 18:01:18"
+      }
+    ],
+    "risks": [
+      {
+        "id": 12,
+        "project_id": "LBS",
+        "title": "出价模型可能存在过高估计的问题",
+        "detail": "当前模型只参考了某一天的CPC，未考虑过去7天/15天的均值，可能导致过高估计。",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:18",
+        "updated_at": "2026-08-11 18:01:18"
+      }
+    ],
     "roles": [
       {
         "id": 12,
@@ -556,6 +651,22 @@
     ],
     "commitments": [],
     "timeline": [
+      {
+        "id": 32,
+        "project_id": "LBS",
+        "event": "进度更新: 模型",
+        "detail": "正在调整出价模型，以考虑历史出价序列和时间衰减，预计明天上午完成调整。",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:18"
+      },
+      {
+        "id": 33,
+        "project_id": "LBS",
+        "event": "AI自动采集",
+        "detail": "提取 3 条（待办1/风险1/承诺0/进度1）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:18"
+      },
       {
         "id": 28,
         "project_id": "LBS",
@@ -779,32 +890,6 @@
         "title": "9月档期全国应用落地",
         "detail": "已确认9月可全国应用",
         "owner": "Yumi(张瑜)",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "manual",
-        "created_at": "2026-08-10 18:33:12",
-        "updated_at": "2026-08-10 18:33:12"
-      },
-      {
-        "id": 51,
-        "project_id": "千店千图",
-        "title": "动态特征优化",
-        "detail": "推进全国扩展所需特征补充",
-        "owner": "",
-        "due": "",
-        "status": "pending",
-        "ddl_unknown": "",
-        "source": "manual",
-        "created_at": "2026-08-10 18:33:12",
-        "updated_at": "2026-08-10 18:33:12"
-      },
-      {
-        "id": 52,
-        "project_id": "千店千图",
-        "title": "全国扩展方案研究",
-        "detail": "需要城市精细化结果支持",
-        "owner": "",
         "due": "",
         "status": "pending",
         "ddl_unknown": "",
@@ -1107,6 +1192,19 @@
     "progress": [],
     "action_items": [
       {
+        "id": 60,
+        "project_id": "AIPOG",
+        "title": "确认模型反向解析部门陈列规则的能力",
+        "detail": "AI提取(2026-08-11)",
+        "owner": "user_bed373",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找鲍力确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:27",
+        "updated_at": "2026-08-11 18:01:27"
+      },
+      {
         "id": 45,
         "project_id": "AIPOG",
         "title": "调查系统性能下降原因",
@@ -1132,11 +1230,31 @@
         "source": "ai_sweep",
         "created_at": "2026-08-10 18:02:04",
         "updated_at": "2026-08-10 18:02:04"
+      },
+      {
+        "id": 13,
+        "project_id": "AIPOG",
+        "title": "模型反向解析中轴线分布的准确性问题",
+        "detail": "由于特例的存在，反推中轴线分布的准确性可能不准确",
+        "level": "medium",
+        "owner": "",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:27",
+        "updated_at": "2026-08-11 18:01:27"
       }
     ],
     "roles": [],
     "commitments": [],
     "timeline": [
+      {
+        "id": 34,
+        "project_id": "AIPOG",
+        "event": "AI自动采集",
+        "detail": "提取 2 条（待办1/风险1/承诺0/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:27"
+      },
       {
         "id": 24,
         "project_id": "AIPOG",
@@ -1192,6 +1310,45 @@
       }
     ],
     "action_items": [
+      {
+        "id": 63,
+        "project_id": "KOS",
+        "title": "梳理NOD客户会议纪要中工具方向上的业务和产品层面事项",
+        "detail": "AI提取(2026-08-11)",
+        "owner": "_user_1",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "需找@_user_2 @_user_3 @_user_4 @_user_5确认",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:43",
+        "updated_at": "2026-08-11 18:01:43"
+      },
+      {
+        "id": 61,
+        "project_id": "KOS",
+        "title": "端口状态调整：针对 CM、AM 及导购端口的数据状态进行精简，仅保留对应角色可识别、符合业务操作需求的必要状态项 @郑淑斌 发布逻辑设计：按照已发布、未发布双状态逻辑开发，已发布内容不再重复请求接口，同步询问运营相关需求；结合不可依赖人工操作结果、避免增加导购负担的前提，设计后台接口自动轮询逻辑，控制成本以判定导购小红书发布是否成功，节省 token 接口消耗 @郑淑斌 @叶茂林 @于金双 Skill 名称标注：将当前未设置中文名称的审核 Skill 等相关文档的名称修改为中文，便于识别区分 @郑淑斌 Skill 相关处理：将现有 skill 打包发送给于金双，当日完成流程图输出，优化 skill 逻辑后开展审核 skill 相关工作 @郑淑斌 会议中的金句时刻",
+        "detail": "会议纪要(2026-08-11): 智能纪要：kos调整好产品方案评估 2026年8月10日",
+        "owner": "郑淑斌",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "meeting_minutes",
+        "created_at": "2026-08-11 18:01:30",
+        "updated_at": "2026-08-11 18:01:30"
+      },
+      {
+        "id": 62,
+        "project_id": "KOS",
+        "title": "文档获取任务：向雪峰获取相关文档，支撑产品团队本周完成相关内容的吃透工作，为后续 AI 质检相关方案落地做准备 @林慧馨 Token 沟通跟进：对接东升沟通 AI 相关的 token 事宜，此前已提醒过对方未得到响应，需再次跟进推进相关事项 @林慧馨 deal list 梳理：本周内梳理 AI 质检相关的 deal list，明确优化方向与优先级，完成后于本周内组织相关人员进行碰同步 @林慧馨",
+        "detail": "会议纪要(2026-08-11): 智能纪要：KOS后台功能及业务需求沟通会 2026年8月11",
+        "owner": "林慧馨",
+        "due": "",
+        "status": "pending",
+        "ddl_unknown": "",
+        "source": "meeting_minutes",
+        "created_at": "2026-08-11 18:01:30",
+        "updated_at": "2026-08-11 18:01:30"
+      },
       {
         "id": 46,
         "project_id": "KOS",
@@ -1315,6 +1472,54 @@
     ],
     "commitments": [
       {
+        "id": 8,
+        "project_id": "KOS",
+        "from_person": "_user_2",
+        "to_person": "_user_1",
+        "action": "梳理业务层面和产品层面的事项",
+        "detail": "AI提取(2026-08-11)",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:43",
+        "updated_at": "2026-08-11 18:01:43"
+      },
+      {
+        "id": 9,
+        "project_id": "KOS",
+        "from_person": "_user_3",
+        "to_person": "_user_1",
+        "action": "梳理业务层面和产品层面的事项",
+        "detail": "AI提取(2026-08-11)",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:43",
+        "updated_at": "2026-08-11 18:01:43"
+      },
+      {
+        "id": 10,
+        "project_id": "KOS",
+        "from_person": "_user_4",
+        "to_person": "_user_1",
+        "action": "梳理业务层面和产品层面的事项",
+        "detail": "AI提取(2026-08-11)",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:43",
+        "updated_at": "2026-08-11 18:01:43"
+      },
+      {
+        "id": 11,
+        "project_id": "KOS",
+        "from_person": "_user_5",
+        "to_person": "_user_1",
+        "action": "梳理业务层面和产品层面的事项",
+        "detail": "AI提取(2026-08-11)",
+        "status": "open",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:43",
+        "updated_at": "2026-08-11 18:01:43"
+      },
+      {
         "id": 5,
         "project_id": "KOS",
         "from_person": "叶茂林",
@@ -1352,6 +1557,30 @@
       }
     ],
     "timeline": [
+      {
+        "id": 37,
+        "project_id": "KOS",
+        "event": "AI自动采集",
+        "detail": "提取 5 条（待办1/风险0/承诺4/进度0）",
+        "source": "ai_sweep",
+        "created_at": "2026-08-11 18:01:43"
+      },
+      {
+        "id": 35,
+        "project_id": "KOS",
+        "event": "📋 会议纪要: 智能纪要：kos调整好产品方案评估 2026年8月10日",
+        "detail": "本次会议评审AI小红书运营后台原型调整方案及核心模块Skill设计，明确各环节规则与交付要求，内容如下：\n后台原型调整方案评审\n工作台与运营任务模块\n状态判定规则：取消仅以“进入创作页面”作为执行中触发条件的逻辑，避免用户误触导致的状态统计结果失真。\n导购端状态设置：于金双提出、叶茂林认同，导购端仅保留新任务、待发布、已发布三类状态，审核退回需补充明确退回原因。\n管理端状态设置：CM/AM管理端仅",
+        "source": "meeting_minutes",
+        "created_at": "2026-08-11 18:01:30"
+      },
+      {
+        "id": 36,
+        "project_id": "KOS",
+        "event": "📋 会议纪要: 智能纪要：KOS后台功能及业务需求沟通会 2026年8月11",
+        "detail": "本次会议围绕现有KOS管理后台功能演示、迭代方向、跨团队协同机制展开对齐，明确万级BA用户规模下的落地路径，内容如下：\n现有KOS管理后台核心功能架构\nBA资讯首页模块\n全周期数据看板：覆盖日、周、月、季、年全维度榜单，支持按KOS绑定赛道、组织架构、岗位属性检索用户信息。\n多源数据接入：公域粉丝量、涨粉率，云店销售数据、线下交易数据全量自动拉取，企微直播、事务所数据需人工导入。\n基础信息查询：支",
+        "source": "meeting_minutes",
+        "created_at": "2026-08-11 18:01:30"
+      },
       {
         "id": 25,
         "project_id": "KOS",
